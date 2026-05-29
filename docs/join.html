@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join TGBI-TO | The Guardians Brotherhood, Inc.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1b3e;
+      --deep: #07112a;
+      --red: #b71c1c;
+      --crimson: #8b0000;
+      --gold: #c8a84b;
+      --gold-lt: #f0d482;
+      --green: #1b5e20;
+      --white: #f9f6ef;
+      --offwhite: #ede8da;
+      --text: #2d2d2d;
+      --muted: #5a5040;
+      --border: rgba(200,168,75,.3);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--offwhite);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+    .divider {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      margin: 0 auto 24px;
+    }
+    
+    nav {
+      background: var(--deep);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 2px solid var(--gold);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.8rem;
+      letter-spacing: .12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.7rem;
+      letter-spacing: .1em;
+      color: var(--offwhite);
+      text-transform: uppercase;
+      transition: color .2s;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 28px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--gold-lt);
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(249,246,239,.8);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .main { padding: 60px 0; }
+    
+    .requirements {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 4px;
+      border-top: 4px solid var(--crimson);
+      margin-bottom: 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .requirements h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .requirements ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .requirements li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .requirements li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: var(--green);
+      font-weight: bold;
+    }
+    
+    .form-container {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 4px;
+      border-top: 4px solid var(--gold);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .form-container h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .form-container p {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    
+    .form-group { margin-bottom: 22px; }
+    .form-group label {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 2px;
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-size: 1rem;
+      background: var(--white);
+      color: var(--text);
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    
+    .btn-submit {
+      width: 100%;
+      background: var(--crimson);
+      color: var(--gold-lt);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all .22s;
+    }
+    .btn-submit:hover {
+      background: var(--red);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139,0,0,.35);
+    }
+    
+    .info-box {
+      margin-top: 24px;
+      padding: 20px;
+      background: var(--offwhite);
+      border-left: 4px solid var(--gold);
+      border-radius: 2px;
+    }
+    .info-box h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .info-box p {
+      color: var(--muted);
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    
+    footer {
+      background: var(--deep);
+      border-top: 3px solid var(--gold);
+      padding: 48px 28px 32px;
+      color: rgba(237,232,218,.6);
+      text-align: center;
+    }
+    footer p { font-size: 0.9rem; }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 640px) {
+      .form-container {
+        padding: 28px 20px;
+      }
+      .requirements {
+        padding: 24px;
+      }
+      .nav-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">TGBI – The Original</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#principles">Principles</a></li>
+        <li><a href="index.html#history">History</a></li>
+        <li><a href="index.html#structure">Structure</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Membership Inquiry</h1>
+      <p>Begin your journey with The Guardians Brotherhood, Inc. – The Original (TGBI-TO). Fill out the form below to submit your inquiry.</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="requirements">
+        <h2>Membership Requirements</h2>
+        <ul>
+          <li>Filipino citizen (foreign nationals may be considered with significant contributions)</li>
+          <li>At least 21 years old for Magic Group (MG) membership</li>
+          <li>Good standing in the community</li>
+          <li>Willing to uphold the Seven Guiding Principles</li>
+          <li>Must have a bona fide TGBI-TO member as a sponsor (you may inquire about sponsorship)</li>
+        </ul>
+      </div>
+
+      <div class="form-container">
+        <h2>Submit Your Inquiry</h2>
+        <p>This form will be sent directly to the TGBI-TO leadership for review.</p>
+        
+        <div style="width: 100%; height: 800px; border: none;">
+          <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?embedded=true" 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            style="border: none;"
+          >
+            Loading…
+          </iframe>
+        </div>
+        
+        <div class="info-box">
+          <h4>Contact Us Directly</h4>
+          <p>
+            Email: <a href="mailto:theguardiansv@gmail.com" style="color: var(--navy); text-decoration: underline;">theguardiansv@gmail.com</a><br>
+            General Headquarters: 43-A Pangasinan St., Bago Bantay, Quezon City 1105, Philippines
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© The Guardians Brotherhood, Inc. – The Original · Est. 1984 · SEC Reg. No. 123899</p>
+    <p style="margin-top: 8px; color: var(--gold); font-size: 0.8rem; font-family: 'Playfair Display', Georgia, serif; text-transform: uppercase; letter-spacing: 0.12em;">Brotherhood for Peace and Prosperity</p>
+  </footer>
+</body>
+</html>
