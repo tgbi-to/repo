@@ -1,972 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Guardians Brotherhood, Inc. – The Original</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Official Brand Colors */
-    :root {
-      --black: #000000;
-      --crimson: #C8102E;
-      --gold: #D4AF37;
-      --gold-lt: #F5E3A0;
-      --white: #F9F6EF;
-      --offwhite: #EDE8DA;
-      --text: #2D2D2D;
-      --muted: #5A5040;
-      --border: rgba(212,175,55,.3);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Guardians Brotherhood Inc. - The Original</title>
+    <style>
+        :root {
+            --primary-color: #0d233a;
+            --secondary-color: #dfb15b;
+            --text-color: #333333;
+            --light-bg: #f4f6f9;
+            --white: #ffffff;
+        }
 
-    /* Reset */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: var(--white);
-      color: var(--text);
-      font-size: 17px;
-      line-height: 1.8;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Utility */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-    .gold { color: var(--gold); }
-    .divider {
-      width: 80px; height: 3px;
-      background: linear-gradient(90deg, var(--crimson), var(--gold));
-      margin: 0 auto 32px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
 
-    /* Header & Nav */
-    header.site-header {
-      background: var(--black);
-      border-bottom: 3px solid var(--gold);
-      position: sticky; top: 0; z-index: 1000;
-    }
-    .header-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 28px;
-      gap: 24px;
-    }
-    .logo-wrap {
-      display: flex; align-items: center; gap: 16px;
-    }
-    .logo {
-      width: 60px; height: 60px; border-radius: 50%;
-      border: 2px solid var(--gold);
-      object-fit: cover;
-    }
-    .brand-text {
-      display: flex; flex-direction: column;
-    }
-    .brand-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .brand-tagline {
-      font-size: 0.7rem;
-      color: rgba(249,246,239,.55);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    nav.main-nav ul {
-      display: flex; align-items: center; gap: 24px; list-style: none;
-    }
-    nav.main-nav a {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: var(--offwhite);
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    nav.main-nav a:hover, nav.main-nav a.active { color: var(--gold); }
-    a.nav-cta {
-      background: var(--crimson);
-      color: var(--gold-lt) !important;
-      padding: 8px 18px;
-      border-radius: 2px;
-    }
-    a.nav-cta:hover { background: #A80D26; }
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
-    /* Hero Section */
-    .hero {
-      background: var(--black);
-      position: relative;
-      overflow: hidden;
-      padding: 100px 28px 80px;
-      text-align: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 40%, rgba(212,175,55,.08) 0%, transparent 70%),
-        repeating-conic-gradient(rgba(212,175,55,.03) 0deg 5deg, transparent 5deg 10deg);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; left: 0; right: 0; bottom: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 50%, var(--crimson) 100%);
-    }
-    .seal-wrap { position: relative; display: inline-block; margin-bottom: 32px; }
-    .seal {
-      width: 180px; height: 180px; border-radius: 50%;
-      border: 4px solid var(--gold);
-      background: radial-gradient(circle, rgba(212,175,55,.15) 0%, rgba(0,0,0,.9) 100%);
-      display: flex; align-items: center; justify-content: center;
-      animation: pulseRing 3s ease-in-out infinite;
-      position: relative; overflow: hidden;
-      margin: 0 auto;
-    }
-    .seal img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    @keyframes pulseRing {
-      0%,100% { box-shadow: 0 0 0 0 rgba(212,175,55,.4), 0 0 0 0 rgba(212,175,55,.2); }
-      50%      { box-shadow: 0 0 0 14px rgba(212,175,55,.1), 0 0 0 28px rgba(212,175,55,.04); }
-    }
-    .hero-sec {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.75rem; letter-spacing: 0.35em;
-      color: var(--gold); text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 900;
-      color: var(--offwhite);
-      line-height: 1.18;
-      margin-bottom: 6px;
-      letter-spacing: 0.03em;
-    }
-    .hero h1 span { color: var(--gold); }
-    .hero-sub {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.8rem; letter-spacing: 0.2em;
-      color: rgba(249,246,239,.55);
-      text-transform: uppercase; margin-bottom: 28px;
-    }
-    .hero-motto {
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--gold-lt);
-      margin-bottom: 40px;
-      opacity: 0.9;
-    }
-    .hero-reg {
-      display: inline-block;
-      border: 1px solid rgba(212,175,55,.35);
-      padding: 6px 20px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.65rem; letter-spacing: 0.18em;
-      color: rgba(245,227,160,.6);
-      text-transform: uppercase;
-      margin-bottom: 44px;
-    }
-    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.78rem; letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 16px 36px;
-      border: none; cursor: pointer;
-      transition: all 0.22s;
-      display: inline-block;
-    }
-    .btn-primary {
-      background: var(--crimson);
-      color: var(--gold-lt);
-    }
-    .btn-primary:hover { background: #A80D26; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,0,0,.35); }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--gold);
-      color: var(--gold);
-    }
-    .btn-outline:hover { background: rgba(212,175,55,.1); transform: translateY(-2px); }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
 
-    /* Stripe Bar */
-    .stripe {
-      background: var(--black);
-      border-top: 1px solid rgba(212,175,55,.2);
-      border-bottom: 1px solid rgba(212,175,55,.2);
-      padding: 20px 28px;
-    }
-    .stripe-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-around;
-      flex-wrap: wrap; gap: 18px;
-    }
-    .stripe-item {
-      display: flex; align-items: center; gap: 10px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.7rem; letter-spacing: 0.1em;
-      color: var(--offwhite); text-transform: uppercase;
-    }
-    .stripe-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .stripe-dot.crimson { background: var(--crimson); }
-    .stripe-dot.gold { background: var(--gold); }
+        .logo a {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-    /* Section Base */
-    section { padding: 80px 0; }
-    .section-label {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.65rem; letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      text-align: center; margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-      font-weight: 700;
-      color: var(--black);
-      text-align: center; margin-bottom: 14px;
-      letter-spacing: 0.03em;
-    }
-    .section-intro {
-      max-width: 720px; margin: 0 auto 48px;
-      text-align: center; color: var(--muted);
-      font-size: 1.05rem;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
 
-    /* Welcome/Founder Section */
-    .welcome-section { background: var(--offwhite); }
-    .founder-message {
-      max-width: 800px; margin: 0 auto;
-      padding: 40px;
-      background: var(--white);
-      border-left: 4px solid var(--crimson);
-      border-top: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .founder-signoff {
-      font-family: 'Playfair Display', Georgia, serif;
-      margin-top: 24px;
-      text-align: right;
-      font-style: italic;
-    }
-    .founder-signoff strong { display: block; font-style: normal; color: var(--crimson); }
+        .nav-links li {
+            margin-left: 15px;
+        }
 
-    /* Acronym Block */
-    .acronym-section { background: var(--white); }
-    .acronym-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2px;
-      border: 1px solid var(--border);
-    }
-    .acronym-item {
-      background: var(--offwhite);
-      padding: 26px 22px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-      text-align: center;
-    }
-    .acronym-item:hover { background: #FFF9EF; }
-    .acronym-letter {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--crimson);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .acronym-word {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.75rem; letter-spacing: 0.08em;
-      color: var(--black); text-transform: uppercase;
-    }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    /* Principles */
-    .principles-section { background: var(--offwhite); }
-    .principles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-    .principle-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 28px 24px;
-      position: relative;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .principle-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 4px;
-    }
-    .principle-card:nth-child(1)::before { background: var(--black); }
-    .principle-card:nth-child(2)::before { background: var(--crimson); }
-    .principle-card:nth-child(3)::before { background: var(--gold); }
-    .principle-card:nth-child(4)::before { background: #2E8B57; }
-    .principle-card:nth-child(5)::before { background: #1E90FF; }
-    .principle-card:nth-child(6)::before { background: #8B0000; }
-    .principle-card:nth-child(7)::before { background: #8B6914; }
-    .principle-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,.08); transform: translateY(-3px); }
-    .p-num {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.6rem; letter-spacing: 0.2em;
-      color: var(--muted); text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .p-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem; font-weight: 700;
-      color: var(--black); margin-bottom: 10px;
-    }
-    .p-body { font-size: 0.92rem; color: var(--muted); }
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
 
-    /* Code of Ethics */
-    .code-ethics-section { background: var(--black); color: var(--offwhite); }
-    .code-ethics-section .section-title { color: var(--gold-lt); }
-    .code-ethics-section .section-label { color: var(--gold); }
-    .code-ethics-box {
-      max-width: 900px; margin: 0 auto;
-      padding: 40px;
-      border: 1px solid rgba(212,175,55,.3);
-      background: rgba(0,0,0,.4);
-    }
-    .code-ethics-box p { margin-bottom: 16px; color: rgba(237,232,218,.85); }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 35, 58, 0.85), rgba(13, 35, 58, 0.95)), url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e01a?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
 
-    /* Creed & Prayer */
-    .creed-prayer-section { background: var(--white); }
-    .creed-prayer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-    }
-    .creed-prayer-card {
-      background: var(--offwhite);
-      border: 1px solid var(--border);
-      padding: 40px;
-      border-radius: 4px;
-      border-top: 4px solid var(--gold);
-    }
-    .creed-prayer-card h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 24px;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .creed-prayer-text {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: var(--text);
-      white-space: pre-line;
-    }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
 
-    /* Mission/Vision */
-    .mv-section {
-      background: linear-gradient(135deg, var(--black) 0%, #1A1A1A 100%);
-      color: var(--offwhite);
-    }
-    .mv-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-    @media (min-width: 900px) {
-      .mv-grid { grid-template-columns: 1fr 1fr; gap: 2px; border: 1px solid rgba(212,175,55,.25); }
-    }
-    .mv-panel {
-      padding: 48px 36px;
-    }
-    .mv-label {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.65rem; letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .mv-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.6rem; font-weight: 700;
-      color: var(--offwhite);
-      margin-bottom: 16px;
-    }
-    .mv-body { color: rgba(237,232,218,.8); font-size: 1rem; }
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
 
-    /* History */
-    .history-section { background: var(--offwhite); color: var(--text); }
-    .timeline { position: relative; max-width: 800px; margin: 0 auto; }
-    .timeline::before {
-      content: ''; position: absolute;
-      left: 22px; top: 0; bottom: 0; width: 2px;
-      background: linear-gradient(to bottom, var(--crimson), var(--gold), transparent);
-    }
-    .tl-item { display: flex; gap: 32px; margin-bottom: 48px; }
-    .tl-dot-wrap {
-      flex-shrink: 0; width: 44px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .tl-dot {
-      width: 14px; height: 14px; border-radius: 50%;
-      background: var(--gold);
-      border: 3px solid var(--offwhite);
-      outline: 2px solid var(--gold);
-      margin-top: 6px;
-    }
-    .tl-year {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.65rem; letter-spacing: 0.1em;
-      color: var(--crimson); text-transform: uppercase;
-      margin-top: 6px;
-    }
-    .tl-content h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem; font-weight: 700;
-      color: var(--black); margin-bottom: 8px;
-    }
-    .tl-content p { font-size: 0.95rem; color: var(--muted); }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            font-style: italic;
+        }
 
-    /* CTA */
-    .cta-section {
-      background: var(--crimson);
-      text-align: center;
-      padding: 80px 28px;
-      position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px,
-        transparent 1px, transparent 12px
-      );
-    }
-    .cta-section h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.5rem, 3.2vw, 2.3rem);
-      color: var(--gold-lt);
-      margin-bottom: 14px;
-    }
-    .cta-section p {
-      color: rgba(249,246,239,.85);
-      max-width: 540px; margin: 0 auto 36px;
-      font-size: 1.05rem;
-    }
-    .btn-white {
-      background: var(--white);
-      color: var(--crimson);
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.78rem; letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 16px 40px;
-      display: inline-block;
-      transition: all 0.22s;
-    }
-    .btn-white:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+        /* Main Content Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
 
-    /* Footer */
-    footer {
-      background: var(--black);
-      border-top: 3px solid var(--gold);
-      padding: 52px 28px 36px;
-      color: rgba(237,232,218,.6);
-    }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 36px; margin-bottom: 36px;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.8rem; letter-spacing: 0.12em;
-      color: var(--gold);
-      text-transform: uppercase; margin-bottom: 10px;
-    }
-    .footer-tagline { font-size: 0.9rem; font-style: italic; }
-    .footer-heading {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.68rem; letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--offwhite); margin-bottom: 14px;
-    }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 8px; }
-    .footer-links a {
-      font-size: 0.9rem; color: rgba(237,232,218,.55);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-bottom {
-      max-width: 1100px; margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid rgba(212,175,55,.15);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-      font-size: 0.8rem;
-    }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1.4rem; }
+        }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .header-inner { flex-direction: column; align-items: flex-start; }
-      nav.main-nav ul { flex-wrap: wrap; gap: 16px; }
-      .seal { width: 140px; height: 140px; }
-      .mv-panel { padding: 32px 24px; }
-      .creed-prayer-card { padding: 28px 24px; }
-      .hero-btns { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 320px; }
-      .founder-message { padding: 28px; }
-      .code-ethics-box { padding: 28px; }
-    }
+        section {
+            margin-bottom: 40px;
+        }
 
-    /* Entrance animations */
-    .fade-up {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: none; }
-  </style>
+        h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Acronym Section */
+        .acronym-box {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+
+        .acronym-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .acronym-list li {
+            font-weight: bold;
+        }
+
+        .acronym-list span {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Principles Cards */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .principle-card {
+            background: var(--light-bg);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            color: var(--primary-color);
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        /* Code of Ethics List */
+        .ethics-list {
+            list-style: none;
+        }
+
+        .ethics-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .ethics-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Sidebar Widgets */
+        aside {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 6px;
+            height: fit-content;
+        }
+
+        .widget {
+            margin-bottom: 30px;
+        }
+
+        .widget h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #cf9e4b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .footer-info {
+            color: var(--secondary-color);
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <img src="images/TGBITO.jpg" alt="TGBI-TO Official Seal" class="logo">
-      <div class="brand-text">
-        <span class="brand-name">TGBI – The Original</span>
-        <span class="brand-tagline">Est. 1984 · SEC Reg. 123899</span>
-      </div>
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#principles">Principles</a></li>
-        <li><a href="#creed">Creed & Prayer</a></li>
-        <li><a href="#history">History</a></li>
-        <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="documents.html">Documents</a></li>
-        <li><a href="join.html" class="nav-cta">Join Us</a></li>
-      </ul>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TGBI-TO</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">History</a></li>
+                <li><a href="#principles">Principles</a></li>
+                <li><a href="#ethics">Ethics</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="documents.html">Docs</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="join.html">Join Us</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="seal-wrap">
-    <div class="seal">
-      <img src="images/TGBITO.jpg" alt="TGBI-TO Official Seal" />
+    <header class="hero">
+        <h1>THE GUARDIANS BROTHERHOOD, INC.</h1>
+        <h2>THE ORIGINAL</h2>
+        <p>"Brotherhood for peace and prosperity"</p>
+        <small>SEC Registration No. 123899 • Founded: December 10, 1984</small>
+    </header>
+
+    <div class="container">
+        
+        <main>
+            <section id="welcome">
+                <h3>Welcome to the Official Website</h3>
+                <p>We, MEN AND WOMEN OF GOODWILL AND INTENTION, in good standing in our communities, with the help of God, have come together to promote and maintain our social, intellectual, moral, economic, and general well-being; protect and defend our individual and collective rights; strengthen our fraternal bonds; and enhancing the spirit of unity, brotherhood, justice, righteousness, and self-sufficiency.</p>
+                <p>From a vision born in the jungles of Mindanao, the Diablo Squad emerged—a Brotherhood forged by courage and Unity. As time passed, it evolved into the Diablo Squad Crime Buster, embracing a deeper commitment to public service, peace, and justice. On December 10, 1984, this dream took form and became a legal and lasting legacy: The Guardians Brotherhood Incorporated.</p>
+                <p>Under the firm and guiding leadership of our International Chairman, <strong>UPMF CARLOMAGNO</strong>, one of the original Incorporators, we are writing a new chapter rooted in Unity, purpose, and reform.</p>
+            </section>
+
+            <section class="acronym-box">
+                <h4>The Meaning of G-U-A-R-D-I-A-N-S:</h4>
+                <ul class="acronym-list">
+                    <li><span>G</span>entlemen</li>
+                    <li><span>U</span>nited</li>
+                    <li><span>A</span>ssociates</li>
+                    <li><span>R</span>ace</li>
+                    <li><span>D</span>auntless</li>
+                    <li><span>I</span>ngenuous</li>
+                    <li><span>A</span>dvocators</li>
+                    <li><span>N</span>ation</li>
+                    <li><span>S</span>ociety</li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 0.95rem; font-style: italic;">
+                    Translated into Filipino language as: "Mga Maginoo, Nagkakaisang Katuwang Ng Lahing Filipino, Magigiting at Matapat na Tagapagtanggol ng Bansa at Lipunan".
+                </p>
+            </section>
+
+            <section id="principles">
+                <h3>Seven Guiding Principles</h3>
+                <p>We live by seven fundamental core values that define our identity, bind us together, and solidify our commitment to every member and the community we serve:</p>
+                <div class="principles-grid">
+                    <div class="principle-card">Brotherhood</div>
+                    <div class="principle-card">Integrity</div>
+                    <div class="principle-card">Peace</div>
+                    <div class="principle-card">Discipline</div>
+                    <div class="principle-card">Service</div>
+                    <div class="principle-card">Equality</div>
+                    <div class="principle-card">Justice</div>
+                </div>
+            </section>
+
+            <section id="ethics">
+                <h3>Code of Ethics</h3>
+                <p>As an officer/member of THE GUARDIANS BROTHERHOOD, INC-THE ORIGINAL, my fundamental duty is to serve the Association wholeheartedly:</p>
+                <ul class="ethics-list">
+                    <li>Adhere to its seven (7) guiding principles of brotherhood, discipline, equality, service, peace, justice, and integrity.</li>
+                    <li>Treat my fellow officers/members equally with the utmost respect the way I respect myself and want others to respect me.</li>
+                    <li>Respect the women, the elders, and persons in authority; respect the Constitutional rights of everyone.</li>
+                    <li>Help my fellow officers/members in times of need to the best of my capability.</li>
+                    <li>Perform the job inherent to my position diligently, honestly, and in good faith.</li>
+                    <li>Continuously uphold the honor and integrity of the Association.</li>
+                    <li>Keep my private life unsullied as an example to all, honest in thought and deed.</li>
+                    <li>Harbor no grudges or hatred against anyone, as love, peace, humility, and understanding will reign in my heart.</li>
+                    <li>Never take advantage of my position to promote self-interest.</li>
+                    <li>Course any internal misunderstandings through the proper grievance machinery and refrain from airing them to the public.</li>
+                </ul>
+            </section>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h4>Membership Actions</h4>
+                <p>Ready to undergo the required POI training and become an official member of the Original lineage?</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?usp=sf_link" class="btn" target="_blank" style="margin-bottom: 10px;">Apply for Membership</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSerUSzdelAZefEeRHbA8CIMpEbbNb_1VVEEGTpFf0fQCP7Euw/viewform?usp=sf_link" class="btn" target="_blank" style="background-color: var(--primary-color); color: white;">ID & Certificate Form</a>
+            </div>
+
+            <div id="news" class="widget">
+                <h4>Latest Announcements</h4>
+                <p style="font-size: 0.9rem; font-weight: bold; color: #a11;">[Memo - Oct 28, 2025]</p>
+                <p style="font-size: 0.85rem; margin-bottom: 10px;">Acknowledgment of Mandatory Remittances for the 41st Founding Anniversary, Summit, and Convention from Brunei, Qatar, and NCR Regional Chapters.</p>
+                <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+                <p style="font-size: 0.85rem;">Implementation of Parliamentary Procedure in all official organizational meetings.</p>
+            </div>
+
+            <div class="widget">
+                <h4>Contact Info</h4>
+                <p style="font-size: 0.9rem;">
+                    <strong>General Headquarters:</strong><br>
+                    43-A Pangasinan St., Bago Bantay, Quezon City, 1105 Philippines<br><br>
+                    <strong>Email:</strong> jseletaria1542@yahoo.com
+                </p>
+            </div>
+        </aside>
+
     </div>
-  </div>
-  <p class="hero-sec">The Guardians Brotherhood, Inc.</p>
-  <h1>THE ORIGINAL<br /><span>EST. DECEMBER 10, 1984</span></h1>
-  <p class="hero-motto">"Brotherhood for Peace and Prosperity"</p>
-  <div class="hero-reg">Quezon City, Philippines</div>
-  <div class="hero-btns">
-    <a href="#about" class="btn btn-outline">Our Story</a>
-    <a href="join.html" class="btn btn-primary">Request Membership</a>
-  </div>
-</section>
 
-<!-- STRIPE -->
-<div class="stripe">
-  <div class="stripe-inner">
-    <div class="stripe-item"><span class="stripe-dot crimson"></span>Est. 1984 – SEC Registered</div>
-    <div class="stripe-item"><span class="stripe-dot gold"></span>Founded by BFG Abraham & UPMF Carlomagno</div>
-  </div>
-</div>
+    <footer>
+        <p>&copy; 2026 The Guardians Brotherhood, Inc. - The Original. All Rights Reserved.</p>
+        <p class="footer-info">Mabuhay ang TGBI - The Original! We serve with pride and Honor.</p>
+    </footer>
 
-<!-- WELCOME / FOUNDER'S MESSAGE -->
-<section id="about" class="welcome-section">
-  <div class="container">
-    <p class="section-label fade-up">Welcome</p>
-    <h2 class="section-title fade-up">Our Mission & Vision</h2>
-    <div class="divider"></div>
-
-    <div class="founder-message fade-up">
-      <h3 style="font-family:'Playfair Display', Georgia, serif; font-weight:700; color:var(--black); margin-bottom:16px;">Our Mission</h3>
-      <p style="margin-bottom:24px;">
-        The Guardians Brotherhood is a fraternity of men and women committed to the tenets of self-development, brotherhood, and charity for the betterment of society and its people of various colors, persuasion, and creed.
-      </p>
-
-      <p style="margin-bottom:16px;">
-        We, MEN AND WOMEN OF GOODWILL AND INTENTION, in good standing in our communities, with the help of God, have come together to promote and maintain our social, intellectual, moral, economic, and general well-being; protect and defend our individual and collective rights; strengthen our fraternal bonds; and enhancing the spirit of unity, brotherhood, justice, righteousness, and self-sufficiency.
-      </p>
-
-      <p style="margin-bottom:16px;">
-        From a vision born in the jungles of Mindanao, the Diablo Squad emerge—a Brotherhood forged by courage and Unity, as times past it evolves into Diablo Squad Crime buster, embracing a deeper commitment to public service, peace and justice, in December 10,1984 this dream took form and became a legal and lasting legacy, The Guardians Brotherhood, Inc.
-      </p>
-
-      <p style="margin-bottom:16px;">
-        For over four decades our organization has weathered countless challenges from internal struggles to external misunderstanding. We have face trials that tested our loyalty our values and even our very identity, but through it all, we never give up, we remained strong, and today we proudly declare to the Philippines and the world, we are stronger than ever!
-      </p>
-
-      <p style="margin-bottom:16px;">
-        I am Master Founder Alamid, one of the new breed of leaders who have taken up the mantle with pride courage and Honor, I carried with me the lessons of the past, and the vision of better tomorrow. It is time to break the chains that have hinted and hindered our Brotherhood for too long, we will not allow division, conflicts of personal interest to destroy what generation of Brothers and sisters have built, sweat and loyalty.
-      </p>
-
-      <p style="margin-bottom:16px;">
-        Under the firm and guiding leadership of our International Chairman, UPMF CARLOMAGNO one of the original Incorporators of The Guardians Brotherhood Incorporated, we are writing a new chapter, one that is rooted in Unity, purpose and reform, together we aim to bring back the true essence of Brotherhood and reaffirmed our unshakeable commitment to our Founding Principles.
-      </p>
-
-      <p style="margin-bottom:8px;">
-        We live by seven Guiding Principles that define our Identity and mission:
-        <strong>Brotherhood, Integrity, Peace, Discipline, Service, Equality, Justice</strong>. They are not just words, they are the foundation of our organization, the values that bind us together and the commitment we make to every member and to the community we serve.
-      </p>
-
-      <p>
-        We invite you to explore the website, to reconnect, to learn and to be inspired by the legacy and future of TGBI-TO, whether you are a founding member a returning Brother or a newly inducted recruit, know that you are part of something bigger than yourself — A family, A movement, A Brotherhood with a mission.
-      </p>
-
-      <p style="font-family:'Playfair Display', Georgia, serif; font-style:italic; text-align:center; margin-top:24px; font-size:1.15rem; color:var(--crimson);">
-        MABUHAY ANG TGBI – THE ORIGINAL!
-      </p>
-      <div class="founder-signoff">
-        We serve with pride and honor,<br />
-        We lead with purpose,<br />
-        We stand united.
-        <strong>— UPMF CARLOMAGNO<br />International Chairman</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ACRONYM -->
-<section class="acronym-section">
-  <div class="container">
-    <p class="section-label fade-up">What We Stand For</p>
-    <h2 class="section-title fade-up">G·U·A·R·D·I·A·N·S</h2>
-    <div class="divider"></div>
-    <div class="acronym-grid fade-up">
-      <div class="acronym-item">
-        <div class="acronym-letter">G</div>
-        <div class="acronym-word">Gentlemen</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">U</div>
-        <div class="acronym-word">United</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">A</div>
-        <div class="acronym-word">Associates</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">R</div>
-        <div class="acronym-word">Race</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">D</div>
-        <div class="acronym-word">Dauntless</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">I</div>
-        <div class="acronym-word">Ingenious</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">A</div>
-        <div class="acronym-word">Advocators</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">N</div>
-        <div class="acronym-word">Nation</div>
-      </div>
-      <div class="acronym-item">
-        <div class="acronym-letter">S</div>
-        <div class="acronym-word">Society</div>
-      </div>
-    </div>
-    <p style="text-align:center; margin-top:32px; font-style:italic; color:var(--muted); max-width:700px; margin-left:auto; margin-right:auto;" class="fade-up">
-      "The Gentlemen and United Associates of the Filipino Race, Dauntless and Ingenious Advocators of the Nation and Society."
-    </p>
-  </div>
-</section>
-
-<!-- SEVEN PRINCIPLES -->
-<section id="principles" class="principles-section">
-  <div class="container">
-    <p class="section-label fade-up">Core Values</p>
-    <h2 class="section-title fade-up">Seven Guiding Principles</h2>
-    <div class="divider"></div>
-    <div class="principles-grid fade-up">
-      <div class="principle-card">
-        <p class="p-num">Principle I</p>
-        <p class="p-title">Brotherhood</p>
-        <p class="p-body">The cornerstone of our organization. To build strong bonds of camaraderie, oneness, and fellowship among all members — bound by loyalty and mutual respect.</p>
-      </div>
-      <div class="principle-card">
-        <p class="p-num">Principle II</p>
-        <p class="p-title">Integrity</p>
-        <p class="p-body">Honesty, reliability, and truthfulness in character. Every member's record should be worthy of emulation — unsullied in deed and word.</p>
-      </div>
-      <div class="principle-card">
-        <p class="p-num">Principle III</p>
-        <p class="p-title">Peace</p>
-        <p class="p-body">Each member acts as an ambassador of peace. We advocate friendliness, harmony, and understanding in all our chapters worldwide.</p>
-      </div>
-      <div class="principle-card">
-        <p class="p-num">Principle IV</p>
-        <p class="p-title">Justice</p>
-        <p class="p-body">Justice served according to righteousness, equity, and moral significance. Firm, but always tempered with compassion and due process.</p>
-      </div>
-      <div class="principle-card">
-        <p class="p-num">Principle V</p>
-        <p class="p-title">Equality</p>
-        <p class="p-body">Equal application of law for all — protecting the vulnerable and ensuring every member receives fair and impartial treatment under the organization's rules.</p>
-      </div>
-      <div class="principle-card">
-        <p class="p-num">Principle VI</p>
-        <p class="p-title">Discipline</p>
-        <p class="p-body">Self-restraint, calm demeanor, and adherence to the By-Laws. A member must know how to govern themselves before governing others.</p>
-      </div>
-      <div class="principle-card">
-        <p class="p-num">Principle VII</p>
-        <p class="p-title">Service</p>
-        <p class="p-body">Selfless service to oneself, to the organization, and to fellow members — within the limits of one's means and always in good faith.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CODE OF ETHICS -->
-<section class="code-ethics-section">
-  <div class="container">
-    <p class="section-label fade-up">Our Code</p>
-    <h2 class="section-title fade-up">Code of Ethics</h2>
-    <div class="divider" style="background:linear-gradient(90deg,var(--gold),var(--crimson));"></div>
-    <div class="code-ethics-box fade-up">
-      <p>As an officer/member of THE GUARDIANS BROTHERHOOD, INC-THE ORIGINAL, my fundamental duty is to serve the Association wholeheartedly; adhere to its seven guiding principles; treat my fellow officers/members equally with the utmost respect the way I respect myself and want others to respect me; respect the women, the elders, and persons in authority; respect the Constitutional rights of everyone; help my fellow officers/members in times of need to the best of my capability; perform the job inherent to my position diligently, honestly and in good faith; and continuously uphold the honor and integrity of the Association.</p>
-      <p>I will do my best to keep my private life unsullied as an example to all. Honest in thought and deed, I will be exemplary in obeying the laws of the land and the By-Laws of THE GUARDIANS BROTHERHOOD, INC-THE ORIGINAL. I will harbor no grudges or hatred against anyone, as love, peace, humility, and understanding will reign in my heart. I will not take advantage of my position to promote my self-interest.</p>
-      <p>I recognize the authority of my leaders and seek their guidance if necessary. In case of any misunderstanding within the Association, I will refrain from airing the same to the public, but I will course my concern through the proper procedure, such as the grievance machinery. I will not do any illegal or untoward activity that will put the Association in a bad light. I will take responsibility for my action without passing the blame to others or trying to evade personal liability.</p>
-      <p>I will constantly strive to achieve these objectives and ideals, dedicating myself before God and my chosen Association, THE GUARDIANS BROTHERHOOD, INC-THE ORIGINAL.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CREED & PRAYER -->
-<section id="creed" class="creed-prayer-section">
-  <div class="container">
-    <p class="section-label fade-up">Our Faith</p>
-    <h2 class="section-title fade-up">Creed & Prayer</h2>
-    <div class="divider"></div>
-    <div class="creed-prayer-grid fade-up">
-      <div class="creed-prayer-card">
-        <h3>Creed of the Guardians Brotherhood</h3>
-        <div class="creed-prayer-text">
-I am GUARDIANS
-I stand firm in the spirit of Brotherhood.
-Bound not by blood, but by loyalty, respect, and unity.
-
-I live with unwavering Integrity.
-Doing what is right
-Even when no one is watching.
-
-I uphold Peace
-Resolving conflicts with reason,
-Compassion and calm strength.
-
-I fight for Justice, defending the innocent,
-Confronting the anguish, and standing as a shield
-For those who cannot protect themselves.
-
-I believe in Equality,
-Treating every person with fairness, respect, and dignity,
-Regardless of race, status or belief.
-
-I embrace Discipline
-In thoughts, in words, and in actions
-A reflection of Honor and self-mastery.
-
-I commit to Service,
-Placing the welfare of others along with myself,
-And answering the call of duty without mental reservation
-
-With these seven principles as my guide,
-I walk the path of true Guardians,
-Faithful to my Brotherhood,
-Loyal to my Mission and Steadfast in my Purpose.
-
-I am GUARDIANS,
-I endure with Honor,
-and I live by the CODE.
-        </div>
-      </div>
-      <div class="creed-prayer-card">
-        <h3>Guardians Prayer (English Version)</h3>
-        <div class="creed-prayer-text">
-God teach us to be;
-
-Courteous and not overcome by fear,
-
-Disciplined with the lowly and the high,
-
-Brotherly among friends and enemies;
-
-Righteous in the face of greed;
-
-Just when prone to prejudice;
-
-God help us to be;
-
-Ingenious protector of the helpless;
-
-Dauntless advocators of the Filipino banner, liberty and oneness;
-
-Kind, expecting no thanks nor treat;
-
-Loyal, to our country and creed;
-
-Mild in anger or in tears;
-
-Noble in victory or defeat;
-
-Sincere without pretense & without pride;
-
-God, we beseech thee;
-
-Grant us Wisdom to know the way;
-
-The Light to show the way;
-
-The Strength to go the way.
-
-Amen.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HISTORY -->
-<section id="history" class="history-section">
-  <div class="container">
-    <p class="section-label fade-up">Our Legacy</p>
-    <h2 class="section-title fade-up">History of TGBI-TO</h2>
-    <div class="divider"></div>
-    <div class="timeline fade-up">
-      <div class="tl-item">
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"></div>
-          <div class="tl-year">1976</div>
-        </div>
-        <div class="tl-content">
-          <h3>The Diablo Squad is Born</h3>
-          <p>BFG Abraham (Leborio Jangao Jr.) organizes the 11-member Diablo Squad in Kidama, Matanog, Maguindanao — the earliest seed of what would become the Brotherhood.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"></div>
-          <div class="tl-year">1980</div>
-        </div>
-        <div class="tl-content">
-          <h3>Diablo Squad Crime Buster (DSCB)</h3>
-          <p>The DSCB is established in Iligan City, Lanao del Norte with 15 founding members, including UPMF Carlomagno (member #13), uniting professionals from military and civilian life.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"></div>
-          <div class="tl-year">1982</div>
-        </div>
-        <div class="tl-content">
-          <h3>First Convention</h3>
-          <p>The DSCB Constitution and By-Laws are drafted and ratified at Mindanao State University-Iligan Institute of Technology, with the Magic Group (lawyers, professors, leaders) contributing to the early foundations.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"></div>
-          <div class="tl-year">1984</div>
-        </div>
-        <div class="tl-content">
-          <h3>SEC Registration – THE ORIGINAL</h3>
-          <p>Following the disbandment of the DSCB with the blessing of then-Lt. Gen. Fidel V. Ramos, The Guardians Brotherhood, Inc. is formally registered with the SEC on December 10, 1984 under Registration No. 123899.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"></div>
-          <div class="tl-year">Today</div>
-        </div>
-        <div class="tl-content">
-          <h3>Global Brotherhood</h3>
-          <p>With chapters across Luzon, Visayas, Mindanao, and international regions worldwide, TGBI-TO remains the one true Original — continuing its mission of brotherhood, service, and nation-building under UPMF Carlomagno.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="fade-up">Join the Brotherhood</h2>
-    <p class="fade-up">Become part of a legacy that spans four decades and continues to grow stronger. Begin your journey today.</p>
-    <a href="join.html" class="btn-white fade-up">Request Membership</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <p class="footer-brand">TGBI – The Original</p>
-      <p class="footer-tagline">Brotherhood for Peace and Prosperity</p>
-      <p style="margin-top:8px; font-size:0.85rem;">Est. December 10, 1984</p>
-    </div>
-    <div>
-      <p class="footer-heading">Quick Links</p>
-      <ul class="footer-links">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#principles">Principles</a></li>
-        <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="documents.html">Documents</a></li>
-        <li><a href="join.html">Join Us</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-heading">Connect</p>
-      <ul class="footer-links">
-        <li><a href="https://www.tgbito.org" target="_blank">Official Website</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2024 The Guardians Brotherhood, Inc. – The Original. All rights reserved.</p>
-    <p>SEC Reg. No. 123899</p>
-  </div>
-</footer>
-
-<script>
-  // Intersection Observer for fade-up animations
-  const observerOptions = { root: null, threshold: 0.15, rootMargin: "0px" };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, observerOptions);
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>

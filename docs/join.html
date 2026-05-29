@@ -1,377 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Us - The Guardians Brotherhood, Inc. – The Original</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Official Brand Colors */
-    :root {
-      --black: #000000;
-      --crimson: #C8102E;
-      --gold: #D4AF37;
-      --gold-lt: #F5E3A0;
-      --white: #F9F6EF;
-      --offwhite: #EDE8DA;
-      --text: #2D2D2D;
-      --muted: #5A5040;
-      --border: rgba(212,175,55,.3);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - The Guardians Brotherhood Inc. - The Original</title>
+    <style>
+        :root {
+            --primary-color: #0d233a;
+            --secondary-color: #dfb15b;
+            --text-color: #333333;
+            --light-bg: #f4f6f9;
+            --white: #ffffff;
+        }
 
-    /* Reset */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: var(--white);
-      color: var(--text);
-      font-size: 17px;
-      line-height: 1.8;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Utility */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-    .gold { color: var(--gold); }
-    .divider {
-      width: 80px; height: 3px;
-      background: linear-gradient(90deg, var(--crimson), var(--gold));
-      margin: 0 auto 32px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
 
-    /* Header & Nav */
-    header.site-header {
-      background: var(--black);
-      border-bottom: 3px solid var(--gold);
-      position: sticky; top: 0; z-index: 1000;
-    }
-    .header-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 28px;
-      gap: 24px;
-    }
-    .logo-wrap {
-      display: flex; align-items: center; gap: 16px;
-    }
-    .logo {
-      width: 60px; height: 60px; border-radius: 50%;
-      border: 2px solid var(--gold);
-      object-fit: cover;
-    }
-    .brand-text {
-      display: flex; flex-direction: column;
-    }
-    .brand-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .brand-tagline {
-      font-size: 0.7rem;
-      color: rgba(249,246,239,.55);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    nav.main-nav ul {
-      display: flex; align-items: center; gap: 24px; list-style: none;
-    }
-    nav.main-nav a {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: var(--offwhite);
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    nav.main-nav a:hover, nav.main-nav a.active { color: var(--gold); }
-    a.nav-cta {
-      background: var(--crimson);
-      color: var(--gold-lt) !important;
-      padding: 8px 18px;
-      border-radius: 2px;
-    }
-    a.nav-cta:hover { background: #A80D26; }
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
-    /* Section Base */
-    section { padding: 80px 0; }
-    .section-label {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.65rem; letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      text-align: center; margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-      font-weight: 700;
-      color: var(--black);
-      text-align: center; margin-bottom: 14px;
-      letter-spacing: 0.03em;
-    }
-    .section-intro {
-      max-width: 720px; margin: 0 auto 48px;
-      text-align: center; color: var(--muted);
-      font-size: 1.05rem;
-    }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
 
-    /* Requirements Section */
-    .requirements-section { background: var(--offwhite); }
-    .requirements-box {
-      max-width: 900px; margin: 0 auto;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--crimson);
-      padding: 36px;
-      border-radius: 4px;
-    }
-    .requirements-box h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-    }
-    .requirements-box ul { list-style: none; }
-    .requirements-box li {
-      padding: 10px 0;
-      padding-left: 32px;
-      position: relative;
-      color: var(--text);
-    }
-    .requirements-box li::before {
-      content: '✓';
-      position: absolute; left: 0;
-      color: var(--crimson);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
+        .logo a {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-    /* Form Section */
-    .form-section { background: var(--white); }
-    .form-container {
-      max-width: 900px; margin: 0 auto;
-      background: var(--offwhite);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--gold);
-      padding: 36px;
-      border-radius: 4px;
-    }
-    .form-container h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 10px;
-      text-align: center;
-      font-size: 1.6rem;
-    }
-    .form-container p.intro {
-      text-align: center; color: var(--muted);
-      margin-bottom: 28px;
-    }
-    .form-iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
-    }
-    .contact-info {
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--white);
-      border-left: 4px solid var(--gold);
-      border-radius: 2px;
-    }
-    .contact-info h4 {
-      font-family: 'Playfair Display', Georgia, serif;
-      color: var(--black);
-      margin-bottom: 12px;
-    }
-    .contact-info a {
-      color: var(--crimson);
-      text-decoration: underline;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
 
-    /* Footer */
-    footer {
-      background: var(--black);
-      border-top: 3px solid var(--gold);
-      padding: 52px 28px 36px;
-      color: rgba(237,232,218,.6);
-    }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 36px; margin-bottom: 36px;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.8rem; letter-spacing: 0.12em;
-      color: var(--gold);
-      text-transform: uppercase; margin-bottom: 10px;
-    }
-    .footer-tagline { font-size: 0.9rem; font-style: italic; }
-    .footer-heading {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.68rem; letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--offwhite); margin-bottom: 14px;
-    }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 8px; }
-    .footer-links a {
-      font-size: 0.9rem; color: rgba(237,232,218,.55);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-bottom {
-      max-width: 1100px; margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid rgba(212,175,55,.15);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-      font-size: 0.8rem;
-    }
+        .nav-links li {
+            margin-left: 15px;
+        }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .header-inner { flex-direction: column; align-items: flex-start; }
-      nav.main-nav ul { flex-wrap: wrap; gap: 16px; }
-      .requirements-box { padding: 28px 20px; }
-      .form-container { padding: 28px 20px; }
-      .form-iframe { height: 900px; }
-    }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    /* Entrance animations */
-    .fade-up {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: none; }
-  </style>
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 35, 58, 0.85), rgba(13, 35, 58, 0.95)), url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e01a?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .requirements-box {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 6px;
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .requirements-box ul {
+            list-style: none;
+        }
+
+        .requirements-box li {
+            padding-left: 25px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .requirements-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .form-container {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 6px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--white);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .footer-info {
+            color: var(--secondary-color);
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <img src="images/TGBITO.jpg" alt="TGBI-TO Official Seal" class="logo">
-      <div class="brand-text">
-        <span class="brand-name">TGBI – The Original</span>
-        <span class="brand-tagline">Est. 1984 · SEC Reg. 123899</span>
-      </div>
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#principles">Principles</a></li>
-        <li><a href="index.html#creed">Creed & Prayer</a></li>
-        <li><a href="index.html#history">History</a></li>
-        <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="documents.html">Documents</a></li>
-        <li><a href="join.html" class="nav-cta">Join Us</a></li>
-      </ul>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TGBI-TO</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">History</a></li>
+                <li><a href="index.html#principles">Principles</a></li>
+                <li><a href="index.html#ethics">Ethics</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="documents.html">Docs</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="join.html">Join Us</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
-</header>
 
-<!-- REQUIREMENTS SECTION -->
-<section class="requirements-section">
-  <div class="container">
-    <p class="section-label fade-up">Begin</p>
-    <h2 class="section-title fade-up">Membership Requirements</h2>
-    <div class="divider"></div>
-    <div class="requirements-box fade-up">
-      <h2>Qualifications for Membership</h2>
-      <ul>
-        <li>Must be a citizen of the Philippines (foreign nationals may be considered with significant contributions)</li>
-        <li>At least 21 years old for Magic Group (MG) membership</li>
-        <li>Good standing in the community</li>
-        <li>Willing to uphold the Seven Guiding Principles</li>
-        <li>Must have a bona fide TGBI-TO member as a sponsor (you may inquire about sponsorship)</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <header class="hero">
+        <h1>Join TGBI-TO</h1>
+    </header>
 
-<!-- FORM SECTION -->
-<section class="form-section">
-  <div class="container">
-    <p class="section-label fade-up">Apply</p>
-    <h2 class="section-title fade-up">Submit Your Inquiry</h2>
-    <div class="divider"></div>
-    <div class="form-container fade-up">
-      <p class="intro">This form will be sent directly to the TGBI-TO leadership for review.</p>
-      <div class="form-iframe">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?embedded=true" 
-          width="100%" 
-          height="100%" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          style="border: none;"
-        >
-          Loading…
-        </iframe>
-      </div>
-      <div class="contact-info">
-        <h4>Contact Us Directly</h4>
-        <p>
-          Email: <a href="mailto:theguardiansv@gmail.com">theguardiansv@gmail.com</a><br>
-          General Headquarters: 43-A Pangasinan St., Bago Bantay, Quezon City 1105, Philippines
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="container">
+        <h2>Membership Requirements</h2>
+        
+        <div class="requirements-box">
+            <ul>
+                <li>Must be a citizen of the Philippines (foreign nationals may be considered with significant contributions)</li>
+                <li>At least 21 years old for Magic Group (MG) membership</li>
+                <li>Good standing in the community</li>
+                <li>Willing to uphold the Seven Guiding Principles</li>
+                <li>Must have a bona fide TGBI-TO member as a sponsor (you may inquire about sponsorship)</li>
+            </ul>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <p class="footer-brand">TGBI – The Original</p>
-      <p class="footer-tagline">Brotherhood for Peace and Prosperity</p>
-      <p style="margin-top:8px; font-size:0.85rem;">Est. December 10, 1984</p>
-    </div>
-    <div>
-      <p class="footer-heading">Quick Links</p>
-      <ul class="footer-links">
-        <li><a href="index.html#about">About Us</a></li>
-        <li><a href="index.html#principles">Principles</a></li>
-        <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="documents.html">Documents</a></li>
-        <li><a href="join.html">Join Us</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-heading">Connect</p>
-      <ul class="footer-links">
-        <li><a href="https://www.tgbito.org" target="_blank">Official Website</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2024 The Guardians Brotherhood, Inc. – The Original. All rights reserved.</p>
-    <p>SEC Reg. No. 123899</p>
-  </div>
-</footer>
+        <div class="form-container">
+            <h3 style="color: var(--primary-color); margin-bottom:15px; text-align:center;">Submit Your Membership Inquiry</h3>
+            <div style="width: 100%; height: 800px;">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?embedded=true" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border: none;"
+                >
+                    Loading…
+                </iframe>
+            </div>
 
-<script>
-  const observerOptions = { root: null, threshold: 0.15, rootMargin: "0px" };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, observerOptions);
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+            <div class="contact-info">
+                <h3>Contact Us Directly</h3>
+                <p>
+                    Email: <a href="mailto:jseletaria1542@yahoo.com">jseletaria1542@yahoo.com</a><br>
+                    General Headquarters: 43-A Pangasinan St., Bago Bantay, Quezon City 1105, Philippines
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Guardians Brotherhood, Inc. - The Original. All Rights Reserved.</p>
+        <p class="footer-info">Mabuhay ang TGBI - The Original! We serve with pride and Honor.</p>
+    </footer>
+
 </body>
 </html>
