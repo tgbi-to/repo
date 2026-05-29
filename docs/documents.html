@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Us - The Guardians Brotherhood, Inc. – The Original</title>
+  <title>Documents - The Guardians Brotherhood, Inc. – The Original</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Official Brand Colors */
@@ -121,81 +121,50 @@
       font-size: 1.05rem;
     }
 
-    /* Requirements Section */
-    .requirements-section { background: var(--offwhite); }
-    .requirements-box {
-      max-width: 900px; margin: 0 auto;
+    /* Documents Grid */
+    .documents-section { background: var(--offwhite); }
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .document-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-top: 4px solid var(--crimson);
-      padding: 36px;
+      padding: 32px;
       border-radius: 4px;
-    }
-    .requirements-box h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-    }
-    .requirements-box ul { list-style: none; }
-    .requirements-box li {
-      padding: 10px 0;
-      padding-left: 32px;
-      position: relative;
-      color: var(--text);
-    }
-    .requirements-box li::before {
-      content: '✓';
-      position: absolute; left: 0;
-      color: var(--crimson);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Form Section */
-    .form-section { background: var(--white); }
-    .form-container {
-      max-width: 900px; margin: 0 auto;
-      background: var(--offwhite);
-      border: 1px solid var(--border);
       border-top: 4px solid var(--gold);
-      padding: 36px;
-      border-radius: 4px;
-    }
-    .form-container h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 10px;
       text-align: center;
-      font-size: 1.6rem;
     }
-    .form-container p.intro {
-      text-align: center; color: var(--muted);
-      margin-bottom: 28px;
+    .document-icon {
+      width: 64px; height: 64px;
+      background: var(--deep);
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
     }
-    .form-iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
-    }
-    .contact-info {
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--white);
-      border-left: 4px solid var(--gold);
-      border-radius: 2px;
-    }
-    .contact-info h4 {
+    .document-name {
       font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem; font-weight: 700;
       color: var(--black);
       margin-bottom: 12px;
     }
-    .contact-info a {
-      color: var(--crimson);
-      text-decoration: underline;
+    .document-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+    .document-link {
+      font-family: 'Playfair Display', Georgia, serif;
+      display: inline-block;
+      background: var(--crimson);
+      color: var(--gold-lt);
+      padding: 10px 24px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.22s;
     }
+    .document-link:hover { background: #A80D26; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,0,0,.25); }
 
     /* Footer */
     footer {
@@ -241,9 +210,6 @@
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
       nav.main-nav ul { flex-wrap: wrap; gap: 16px; }
-      .requirements-box { padding: 28px 20px; }
-      .form-container { padding: 28px 20px; }
-      .form-iframe { height: 900px; }
     }
 
     /* Entrance animations */
@@ -274,59 +240,64 @@
         <li><a href="index.html#history">History</a></li>
         <li><a href="leadership.html">Leadership</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="documents.html">Documents</a></li>
+        <li><a href="documents.html" class="active">Documents</a></li>
         <li><a href="join.html" class="nav-cta">Join Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<!-- REQUIREMENTS SECTION -->
-<section class="requirements-section">
+<!-- DOCUMENTS SECTION -->
+<section class="documents-section">
   <div class="container">
-    <p class="section-label fade-up">Begin</p>
-    <h2 class="section-title fade-up">Membership Requirements</h2>
+    <p class="section-label fade-up">Official Records</p>
+    <h2 class="section-title fade-up">TGBI-TO Documents</h2>
     <div class="divider"></div>
-    <div class="requirements-box fade-up">
-      <h2>Qualifications for Membership</h2>
-      <ul>
-        <li>Must be a citizen of the Philippines (foreign nationals may be considered with significant contributions)</li>
-        <li>At least 21 years old for Magic Group (MG) membership</li>
-        <li>Good standing in the community</li>
-        <li>Willing to uphold the Seven Guiding Principles</li>
-        <li>Must have a bona fide TGBI-TO member as a sponsor (you may inquire about sponsorship)</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <p class="section-intro fade-up">
+      Access our official constitution, by-laws, and other important Brotherhood documents.
+    </p>
 
-<!-- FORM SECTION -->
-<section class="form-section">
-  <div class="container">
-    <p class="section-label fade-up">Apply</p>
-    <h2 class="section-title fade-up">Submit Your Inquiry</h2>
-    <div class="divider"></div>
-    <div class="form-container fade-up">
-      <p class="intro">This form will be sent directly to the TGBI-TO leadership for review.</p>
-      <div class="form-iframe">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?embedded=true" 
-          width="100%" 
-          height="100%" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          style="border: none;"
-        >
-          Loading…
-        </iframe>
+    <div class="documents-grid fade-up">
+      <div class="document-card">
+        <div class="document-icon">📄</div>
+        <h3 class="document-name">TGBI-TO CBL (Amended)</h3>
+        <p class="document-desc">Amended Constitution and By-Laws of The Guardians Brotherhood, Inc. – The Original.</p>
+        <a href="cbl/TGBI-TO CBL (Amended).docx" class="document-link">Download</a>
       </div>
-      <div class="contact-info">
-        <h4>Contact Us Directly</h4>
-        <p>
-          Email: <a href="mailto:theguardiansv@gmail.com">theguardiansv@gmail.com</a><br>
-          General Headquarters: 43-A Pangasinan St., Bago Bantay, Quezon City 1105, Philippines
-        </p>
+
+      <div class="document-card">
+        <div class="document-icon">📋</div>
+        <h3 class="document-name">Amended By-Laws</h3>
+        <p class="document-desc">Text version of our Amended By-Laws.</p>
+        <a href="cbl/Amended-By-Laws.md" class="document-link">Read</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-icon">📚</div>
+        <h3 class="document-name">TGBI-TO MBC</h3>
+        <p class="document-desc">Mandatory Basic Course materials for new members.</p>
+        <a href="mbc/TGBI-TO MBC.docx" class="document-link">Download</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-icon">📖</div>
+        <h3 class="document-name">Code of Ethics</h3>
+        <p class="document-desc">Ethical guidelines and principles for all members of TGBI-TO.</p>
+        <a href="../docs/legal/Code-of-Ethics.md" class="document-link">Read</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-icon">📜</div>
+        <h3 class="document-name">Creed & Prayer</h3>
+        <p class="document-desc">Official Creed and Prayer of The Guardians Brotherhood.</p>
+        <a href="../docs/principles/Creed.md" class="document-link">Read Creed</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-icon">📝</div>
+        <h3 class="document-name">Application Form</h3>
+        <p class="document-desc">Membership application form for The Guardians Brotherhood, Inc.</p>
+        <a href="join.html" class="document-link">Apply Online</a>
       </div>
     </div>
   </div>

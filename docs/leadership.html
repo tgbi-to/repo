@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Us - The Guardians Brotherhood, Inc. – The Original</title>
+  <title>Leadership - The Guardians Brotherhood, Inc. – The Original</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Official Brand Colors */
@@ -121,81 +121,44 @@
       font-size: 1.05rem;
     }
 
-    /* Requirements Section */
-    .requirements-section { background: var(--offwhite); }
-    .requirements-box {
-      max-width: 900px; margin: 0 auto;
+    /* Leadership Grid */
+    .leadership-section { background: var(--offwhite); }
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .leader-card {
       background: var(--white);
       border: 1px solid var(--border);
+      padding: 36px;
+      border-radius: 4px;
       border-top: 4px solid var(--crimson);
-      padding: 36px;
-      border-radius: 4px;
-    }
-    .requirements-box h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-    }
-    .requirements-box ul { list-style: none; }
-    .requirements-box li {
-      padding: 10px 0;
-      padding-left: 32px;
-      position: relative;
-      color: var(--text);
-    }
-    .requirements-box li::before {
-      content: '✓';
-      position: absolute; left: 0;
-      color: var(--crimson);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Form Section */
-    .form-section { background: var(--white); }
-    .form-container {
-      max-width: 900px; margin: 0 auto;
-      background: var(--offwhite);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--gold);
-      padding: 36px;
-      border-radius: 4px;
-    }
-    .form-container h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 10px;
       text-align: center;
-      font-size: 1.6rem;
     }
-    .form-container p.intro {
-      text-align: center; color: var(--muted);
-      margin-bottom: 28px;
+    .leader-avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--deep);
+      border: 3px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      overflow: hidden;
     }
-    .form-iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
-    }
-    .contact-info {
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--white);
-      border-left: 4px solid var(--gold);
-      border-radius: 2px;
-    }
-    .contact-info h4 {
+    .leader-name {
       font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem; font-weight: 700;
       color: var(--black);
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
-    .contact-info a {
+    .leader-rank {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.85rem; font-weight: 600;
       color: var(--crimson);
-      text-decoration: underline;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
     }
+    .leader-desc { font-size: 0.95rem; color: var(--muted); }
 
     /* Footer */
     footer {
@@ -241,9 +204,6 @@
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
       nav.main-nav ul { flex-wrap: wrap; gap: 16px; }
-      .requirements-box { padding: 28px 20px; }
-      .form-container { padding: 28px 20px; }
-      .form-iframe { height: 900px; }
     }
 
     /* Entrance animations */
@@ -272,7 +232,7 @@
         <li><a href="index.html#principles">Principles</a></li>
         <li><a href="index.html#creed">Creed & Prayer</a></li>
         <li><a href="index.html#history">History</a></li>
-        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="leadership.html" class="active">Leadership</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="documents.html">Documents</a></li>
         <li><a href="join.html" class="nav-cta">Join Us</a></li>
@@ -281,52 +241,42 @@
   </div>
 </header>
 
-<!-- REQUIREMENTS SECTION -->
-<section class="requirements-section">
+<!-- LEADERSHIP SECTION -->
+<section class="leadership-section">
   <div class="container">
-    <p class="section-label fade-up">Begin</p>
-    <h2 class="section-title fade-up">Membership Requirements</h2>
+    <p class="section-label fade-up">Our Leaders</p>
+    <h2 class="section-title fade-up">TGBI-TO Leadership</h2>
     <div class="divider"></div>
-    <div class="requirements-box fade-up">
-      <h2>Qualifications for Membership</h2>
-      <ul>
-        <li>Must be a citizen of the Philippines (foreign nationals may be considered with significant contributions)</li>
-        <li>At least 21 years old for Magic Group (MG) membership</li>
-        <li>Good standing in the community</li>
-        <li>Willing to uphold the Seven Guiding Principles</li>
-        <li>Must have a bona fide TGBI-TO member as a sponsor (you may inquire about sponsorship)</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <p class="section-intro fade-up">
+      Under the firm and guiding leadership of our International Chairman, UPMF CARLOMAGNO, one of the original Incorporators of The Guardians Brotherhood Incorporated, we are writing a new chapter rooted in Unity, purpose, and reform.
+    </p>
 
-<!-- FORM SECTION -->
-<section class="form-section">
-  <div class="container">
-    <p class="section-label fade-up">Apply</p>
-    <h2 class="section-title fade-up">Submit Your Inquiry</h2>
-    <div class="divider"></div>
-    <div class="form-container fade-up">
-      <p class="intro">This form will be sent directly to the TGBI-TO leadership for review.</p>
-      <div class="form-iframe">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?embedded=true" 
-          width="100%" 
-          height="100%" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          style="border: none;"
-        >
-          Loading…
-        </iframe>
+    <div class="leadership-grid">
+      <div class="leader-card fade-up">
+        <div class="leader-avatar">
+          <img src="images/TGBITO.jpg" alt="UPMF Carlomagno" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        </div>
+        <h3 class="leader-name">UPMF CARLOMAGNO</h3>
+        <p class="leader-rank">International Chairman</p>
+        <p class="leader-desc">One of the original Incorporators of The Guardians Brotherhood Incorporated. Leading the Brotherhood with pride, courage, and Honor, carrying the lessons of the past and a vision for a better tomorrow.</p>
       </div>
-      <div class="contact-info">
-        <h4>Contact Us Directly</h4>
-        <p>
-          Email: <a href="mailto:theguardiansv@gmail.com">theguardiansv@gmail.com</a><br>
-          General Headquarters: 43-A Pangasinan St., Bago Bantay, Quezon City 1105, Philippines
-        </p>
+
+      <div class="leader-card fade-up">
+        <div class="leader-avatar">
+          <img src="images/TGBITO.jpg" alt="MF Alamid" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        </div>
+        <h3 class="leader-name">MF ALAMID</h3>
+        <p class="leader-rank">International Vice Chairman for Administration</p>
+        <p class="leader-desc">One of the new breed of leaders who have taken up the mantle with pride, courage, and Honor, dedicated to bringing back the true essence of Brotherhood.</p>
+      </div>
+
+      <div class="leader-card fade-up">
+        <div class="leader-avatar">
+          <img src="images/TGBITO.jpg" alt="OSO Ozoa" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        </div>
+        <h3 class="leader-name">OSO OZOA</h3>
+        <p class="leader-rank">International Executive Secretary</p>
+        <p class="leader-desc">Dedicated leader serving the Brotherhood with commitment and integrity, ensuring smooth operations and communication across all chapters.</p>
       </div>
     </div>
   </div>

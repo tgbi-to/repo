@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Us - The Guardians Brotherhood, Inc. – The Original</title>
+  <title>Gallery - The Guardians Brotherhood, Inc. – The Original</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Official Brand Colors */
@@ -121,81 +121,33 @@
       font-size: 1.05rem;
     }
 
-    /* Requirements Section */
-    .requirements-section { background: var(--offwhite); }
-    .requirements-box {
-      max-width: 900px; margin: 0 auto;
+    /* Gallery Grid */
+    .gallery-section { background: var(--offwhite); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .gallery-item {
       background: var(--white);
       border: 1px solid var(--border);
-      border-top: 4px solid var(--crimson);
-      padding: 36px;
       border-radius: 4px;
+      padding: 16px;
     }
-    .requirements-box h2 {
+    .gallery-link {
       font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-    }
-    .requirements-box ul { list-style: none; }
-    .requirements-box li {
-      padding: 10px 0;
-      padding-left: 32px;
-      position: relative;
-      color: var(--text);
-    }
-    .requirements-box li::before {
-      content: '✓';
-      position: absolute; left: 0;
-      color: var(--crimson);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Form Section */
-    .form-section { background: var(--white); }
-    .form-container {
-      max-width: 900px; margin: 0 auto;
-      background: var(--offwhite);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--gold);
-      padding: 36px;
-      border-radius: 4px;
-    }
-    .form-container h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 10px;
+      display: block;
       text-align: center;
-      font-size: 1.6rem;
-    }
-    .form-container p.intro {
-      text-align: center; color: var(--muted);
-      margin-bottom: 28px;
-    }
-    .form-iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
-    }
-    .contact-info {
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--white);
-      border-left: 4px solid var(--gold);
+      padding: 14px;
+      background: var(--crimson);
+      color: var(--gold-lt);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       border-radius: 2px;
+      transition: all 0.22s;
     }
-    .contact-info h4 {
-      font-family: 'Playfair Display', Georgia, serif;
-      color: var(--black);
-      margin-bottom: 12px;
-    }
-    .contact-info a {
-      color: var(--crimson);
-      text-decoration: underline;
-    }
+    .gallery-link:hover { background: #A80D26; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,0,0,.25); }
 
     /* Footer */
     footer {
@@ -241,17 +193,7 @@
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
       nav.main-nav ul { flex-wrap: wrap; gap: 16px; }
-      .requirements-box { padding: 28px 20px; }
-      .form-container { padding: 28px 20px; }
-      .form-iframe { height: 900px; }
     }
-
-    /* Entrance animations */
-    .fade-up {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
@@ -273,7 +215,7 @@
         <li><a href="index.html#creed">Creed & Prayer</a></li>
         <li><a href="index.html#history">History</a></li>
         <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
         <li><a href="documents.html">Documents</a></li>
         <li><a href="join.html" class="nav-cta">Join Us</a></li>
       </ul>
@@ -281,52 +223,34 @@
   </div>
 </header>
 
-<!-- REQUIREMENTS SECTION -->
-<section class="requirements-section">
+<!-- GALLERY SECTION -->
+<section class="gallery-section">
   <div class="container">
-    <p class="section-label fade-up">Begin</p>
-    <h2 class="section-title fade-up">Membership Requirements</h2>
+    <p class="section-label fade-up">Moments</p>
+    <h2 class="section-title fade-up">TGBI-TO Gallery</h2>
     <div class="divider"></div>
-    <div class="requirements-box fade-up">
-      <h2>Qualifications for Membership</h2>
-      <ul>
-        <li>Must be a citizen of the Philippines (foreign nationals may be considered with significant contributions)</li>
-        <li>At least 21 years old for Magic Group (MG) membership</li>
-        <li>Good standing in the community</li>
-        <li>Willing to uphold the Seven Guiding Principles</li>
-        <li>Must have a bona fide TGBI-TO member as a sponsor (you may inquire about sponsorship)</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <p class="section-intro fade-up">
+      Explore photo albums and memories from our events, conventions, and Brotherhood gatherings.
+    </p>
 
-<!-- FORM SECTION -->
-<section class="form-section">
-  <div class="container">
-    <p class="section-label fade-up">Apply</p>
-    <h2 class="section-title fade-up">Submit Your Inquiry</h2>
-    <div class="divider"></div>
-    <div class="form-container fade-up">
-      <p class="intro">This form will be sent directly to the TGBI-TO leadership for review.</p>
-      <div class="form-iframe">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?embedded=true" 
-          width="100%" 
-          height="100%" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          style="border: none;"
-        >
-          Loading…
-        </iframe>
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item">
+        <h3 style="font-family:'Playfair Display', Georgia, serif; margin-bottom:16px; color:var(--black);">STA. Catalina Guardians Night</h3>
+        <a href="https://photos.app.goo.gl/bh8yMtK1uniy1YK76" target="_blank" class="gallery-link">View Album</a>
       </div>
-      <div class="contact-info">
-        <h4>Contact Us Directly</h4>
-        <p>
-          Email: <a href="mailto:theguardiansv@gmail.com">theguardiansv@gmail.com</a><br>
-          General Headquarters: 43-A Pangasinan St., Bago Bantay, Quezon City 1105, Philippines
-        </p>
+      <div class="gallery-item">
+        <h3 style="font-family:'Playfair Display', Georgia, serif; margin-bottom:16px; color:var(--black);">Batangas Provincial Chapter 1st Founding Anniversary</h3>
+        <p style="margin-bottom:16px; color:var(--muted); font-size:0.9rem;">Celebration with our Honorable Guests UPMF CARLO MAGNO, UPM PRIUS, NF MALAKAS, FDR NOEL.</p>
+        <a href="#" class="gallery-link">View Photos</a>
+      </div>
+      <div class="gallery-item">
+        <h3 style="font-family:'Playfair Display', Georgia, serif; margin-bottom:16px; color:var(--black);">38th Anniversary Summit Photos</h3>
+        <a href="https://photos.app.goo.gl/npsUKFesEFv3zzsA9" target="_blank" class="gallery-link">View Album</a>
+      </div>
+      <div class="gallery-item">
+        <h3 style="font-family:'Playfair Display', Georgia, serif; margin-bottom:16px; color:var(--black);">39th Founding Anniversary</h3>
+        <p style="margin-bottom:16px; color:var(--muted); font-size:0.9rem;">December 10, 2023 at Batangas City, Philippines.</p>
+        <a href="https://www.youtube.com/watch?v=Za916BIglec" target="_blank" class="gallery-link">Watch Video</a>
       </div>
     </div>
   </div>
@@ -364,14 +288,5 @@
   </div>
 </footer>
 
-<script>
-  const observerOptions = { root: null, threshold: 0.15, rootMargin: "0px" };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, observerOptions);
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
