@@ -64,6 +64,21 @@ export interface EthicRule {
   guideline: string;
 }
 
+export interface OfficialDocument {
+  id: string;
+  title: string;
+  desc: string;
+  filename: string;
+  category: 'cbl' | 'ethics' | 'history' | 'principles' | 'mbc' | 'contact';
+  categoryLabel: string;
+  type: string;
+  format: 'MD' | 'DOCX';
+  githubUrl: string;
+  rawUrl: string;
+  readContent?: string;
+  dateOrVersion?: string;
+}
+
 export interface MembershipFormData {
   fullName: string;
   email: string;

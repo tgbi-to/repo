@@ -291,50 +291,9 @@ export const JOINING_PROCESS = {
   ]
 };
 
-export const OFFICIAL_DOCUMENTS = [
-  {
-    title: "TGBI-TO CBL (Amended)",
-    desc: "Amended Constitution and By-Laws of TGBI-TO",
-    filename: "TGBI-TO CBL (Amended).docx",
-    type: "Document",
-    link: "https://github.com/tgbi-to/TGBI_TO/blob/main/docs/cbl/TGBI-TO%20CBL%20(Amended).docx"
-  },
-  {
-    title: "Amended By-Laws",
-    desc: "Full text version of the Amended By-Laws with qualification guidelines",
-    filename: "Amended-By-Laws.md",
-    type: "Text",
-    link: "https://github.com/tgbi-to/TGBI_TO/blob/main/docs/cbl/Amended-By-Laws.md"
-  },
-  {
-    title: "Mandatory Basic Course",
-    desc: "Official 12-Hour Training Program of Instruction (POI)",
-    filename: "TGBI-TO MBC.docx",
-    type: "Courseware",
-    link: "https://github.com/tgbi-to/TGBI_TO/blob/main/docs/mbc/TGBI-TO%20MBC.docx"
-  },
-  {
-    title: "History of GBI by UPMF Carlomagno",
-    desc: "Comprehensive memoirs and official account of Diablo Squad & TGBI 1984",
-    filename: "History.md",
-    type: "Historical Record",
-    link: "https://github.com/tgbi-to/TGBI_TO/blob/main/docs/history/History.md"
-  },
-  {
-    title: "Official Code of Ethics",
-    desc: "Organizational ethics, tenets, and moral duties of all members",
-    filename: "Code-of-Ethics.md",
-    type: "Legal & Ethics",
-    link: "https://github.com/tgbi-to/TGBI_TO/blob/main/docs/legal/Code-of-Ethics.md"
-  },
-  {
-    title: "The Guardians Creed & Prayer",
-    desc: "Official liturgical creed, spiritual prayer, and declarations",
-    filename: "Creed.md",
-    type: "Guiding Principles",
-    link: "https://github.com/tgbi-to/TGBI_TO/blob/main/docs/principles/Creed.md"
-  }
-];
+import { OFFICIAL_DOCUMENTS, GITHUB_REPO_URL, GITHUB_RAW_BASE_URL } from './documentsData';
+
+export { OFFICIAL_DOCUMENTS, GITHUB_REPO_URL, GITHUB_RAW_BASE_URL };
 
 export const OFFICIAL_GALLERY = [
   {
@@ -376,6 +335,9 @@ export const OFFICIAL_GALLERY = [
 ];
 
 export const OFFICIAL_LINKS = {
+  repository: "https://github.com/tgbi-to/repo",
+  docsFolder: "https://github.com/tgbi-to/repo/tree/main/docs",
+  issues: "https://github.com/tgbi-to/repo/issues",
   inquiryForm: "https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?usp=sf_link",
   contactForm: "https://docs.google.com/forms/d/e/1FAIpQLSe5HjtwbEKrKWVJfyFFrYzUx_ksclfyo5kul03-IchxexOv-w/viewform",
   idAndCertForm: "https://docs.google.com/forms/d/e/1FAIpQLSerUSzdelAZefEeRHbA8CIMpEbbNb_1VVEEGTpFf0fQCP7Euw/viewform?usp=sf_link",

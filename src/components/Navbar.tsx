@@ -1,31 +1,39 @@
 import React, { useState } from 'react';
-import { Menu, X, Shield, ChevronRight, ExternalLink } from 'lucide-react';
+import { 
+  Menu, 
+  X, 
+  Shield, 
+  ChevronRight, 
+  ExternalLink, 
+  Search, 
+  GitBranch 
+} from 'lucide-react';
 import { Emblem } from './Emblem';
-import { ORGANIZATIONAL_INFO, OFFICIAL_LINKS } from '../data/tgbitoData';
+import { ORGANIZATIONAL_INFO, OFFICIAL_LINKS, GITHUB_REPO_URL } from '../data/tgbitoData';
 
 interface NavbarProps {
   activeSection: string;
+  onOpenSearch?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenSearch }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
-    { label: 'Mission & Vision', href: '#mission' },
+    { label: 'Principles', href: '#principles' },
+    { label: 'Creed & Song', href: '#creed-prayer-song' },
     { label: 'Ethics', href: '#ethics' },
     { label: 'History', href: '#history' },
-    { label: 'Principles', href: '#principles' },
-    { label: 'Creed & Prayer', href: '#creed-prayer' },
-    { label: 'Structure', href: '#structure' },
+    { label: 'Structure', href: '#leadership' },
+    { label: 'Chapters', href: '#chapters' },
     { label: 'Documents', href: '#documents' },
     { label: 'Join Us', href: '#join' },
     { label: 'Contact', href: '#contact' }
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-[#0038A8] via-[#0d233a] to-[#C8102E] text-white shadow-lg border-b border-amber-400/30">
+    <header className="sticky top-0 z-40 bg-gradient-to-r from-[#0038A8] via-[#0d233a] to-[#C8102E] text-white shadow-lg border-b border-amber-400/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24">
           
@@ -63,25 +71,66 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 </a>
               );
             })}
+
+            {/* Quick Search Button */}
+            {onOpenSearch && (
+              <button
+                onClick={onOpenSearch}
+                className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 border border-white/15"
+                title="Quick Search (Ctrl+K)"
+                aria-label="Search portal"
+              >
+                <Search className="w-3.5 h-3.5 text-amber-300" />
+                <span className="text-[11px] text-slate-300 hidden 2xl:inline">Search</span>
+              </button>
+            )}
+
+            {/* GitHub Repository Link */}
+            <a
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 border border-white/15"
+              title="Official GitHub Repository (tgbi-to/repo)"
+            >
+              <GitBranch className="w-3.5 h-3.5 text-amber-300" />
+              <span className="text-[11px] text-slate-200 hidden 2xl:inline">GitHub</span>
+            </a>
+
+            {/* Apply Button */}
             <a
               href={OFFICIAL_LINKS.inquiryForm}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition-all flex items-center gap-1 text-xs shadow-md"
+              className="ml-1 px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition-all flex items-center gap-1 text-xs shadow-md cursor-pointer"
             >
               <span>Apply</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </nav>
 
-          {/* Mobile/Tablet Menu Button */}
+          {/* Mobile/Tablet Menu Button & Search */}
           <div className="flex xl:hidden items-center gap-2">
+            {onOpenSearch && (
+              <button
+                onClick={onOpenSearch}
+                className="p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
+                aria-label="Open search"
+              >
+                <Search className="w-5 h-5 text-amber-300" />
+              </button>
+            )}
+
             <a
-              href="#join"
-              className="px-3 py-1.5 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs shadow-md"
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label="GitHub repository"
             >
-              Join Us
+              <GitBranch className="w-5 h-5 text-amber-300" />
             </a>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
@@ -132,17 +181,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               href={OFFICIAL_LINKS.inquiryForm}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs text-center"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs text-center cursor-pointer"
             >
-              <span>Official Google Form</span>
+              <span>Application Form</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
             <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs text-center"
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs text-center cursor-pointer"
             >
-              Contact GHQ
+              <GitBranch className="w-3.5 h-3.5 text-amber-300" />
+              <span>GitHub Repo</span>
             </a>
           </div>
         </div>

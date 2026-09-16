@@ -1,15 +1,36 @@
 import React from 'react';
-import { Shield, ChevronDown, Award, Users, BookOpen, ExternalLink } from 'lucide-react';
+import { 
+  Shield, 
+  ChevronDown, 
+  Award, 
+  Users, 
+  BookOpen, 
+  ExternalLink, 
+  GitBranch, 
+  Copy,
+  Check
+} from 'lucide-react';
 import { Emblem } from './Emblem';
-import { ORGANIZATIONAL_INFO, OFFICIAL_LINKS } from '../data/tgbitoData';
+import { ORGANIZATIONAL_INFO, OFFICIAL_LINKS, GITHUB_REPO_URL } from '../data/tgbitoData';
+import { useToast } from './Toast';
 
 export const HeroSection: React.FC = () => {
+  const { showToast } = useToast();
+  const [copiedSec, setCopiedSec] = React.useState(false);
+
+  const handleCopySec = () => {
+    navigator.clipboard.writeText(ORGANIZATIONAL_INFO.secRegNumber);
+    setCopiedSec(true);
+    showToast(`Copied SEC Reg. No. ${ORGANIZATIONAL_INFO.secRegNumber} to clipboard!`, 'success');
+    setTimeout(() => setCopiedSec(false), 2000);
+  };
+
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#0d233a] via-[#102a45] to-[#0a1827] text-white py-12 sm:py-20 lg:py-28 border-b border-amber-500/20">
+    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#0d233a] via-[#102a45] to-[#0a1827] text-white py-12 sm:py-20 lg:py-24 border-b border-amber-500/20">
       {/* Background Decorative Accents */}
       <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#dfb15b_1px,transparent_1px)] [background-size:24px_24px]"></div>
       
-      {/* Subtle Color Glows matching Philipline colors: Blue & Red & Gold */}
+      {/* Subtle Color Glows matching Philippine flag: Blue & Red & Gold */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#0038A8]/30 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#C8102E]/25 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -22,10 +43,17 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* SEC Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold mb-5 shadow-sm">
-          <Shield className="w-4 h-4 text-amber-400" />
+        {/* SEC Badge with 1-click copy */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold mb-5 shadow-sm">
+          <Shield className="w-4 h-4 text-amber-400 shrink-0" />
           <span>SEC Registration No. {ORGANIZATIONAL_INFO.secRegNumber} • Registered: {ORGANIZATIONAL_INFO.secRegDate}</span>
+          <button
+            onClick={handleCopySec}
+            className="ml-1 p-1 hover:bg-amber-400/20 rounded transition-colors text-amber-200 cursor-pointer"
+            title="Copy SEC Registration Number"
+          >
+            {copiedSec ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+          </button>
         </div>
 
         {/* Main Headings strictly from repo */}
@@ -48,31 +76,43 @@ export const HeroSection: React.FC = () => {
         </p>
 
         {/* Call-to-action buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
           <a
             href="#join"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-base shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-7 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>How to Join TGBI-TO</span>
             <Users className="w-4 h-4" />
           </a>
 
           <a
-            href="#about"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-white font-semibold text-base border border-slate-700 transition-all min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
+            href="#documents"
+            className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#0038A8] hover:bg-[#002d87] text-white font-semibold text-sm sm:text-base shadow-md transition-all transform hover:-translate-y-0.5 min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Read Our History & Purpose</span>
+            <span>Official Documents</span>
             <BookOpen className="w-4 h-4" />
+          </a>
+
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm sm:text-base border border-slate-700 transition-all min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
+            title="Official GitHub repository tgbi-to/repo"
+          >
+            <GitBranch className="w-4 h-4 text-amber-400" />
+            <span>GitHub Repository</span>
+            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
           </a>
 
           <a
             href={OFFICIAL_LINKS.inquiryForm}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-semibold text-base shadow-md transition-all min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-semibold text-sm sm:text-base shadow-md transition-all min-h-[44px] flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Official Membership Form</span>
-            <ExternalLink className="w-4 h-4" />
+            <span>Apply Online</span>
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
 
@@ -113,7 +153,7 @@ export const HeroSection: React.FC = () => {
         <div className="mt-10 flex justify-center">
           <a
             href="#about"
-            className="p-2 text-slate-400 hover:text-amber-400 transition-colors"
+            className="p-2 text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
             aria-label="Scroll to About Section"
           >
             <ChevronDown className="w-6 h-6 animate-bounce" />
