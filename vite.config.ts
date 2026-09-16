@@ -4,8 +4,14 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
-  const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
-  const base = process.env.VITE_BASE_PATH || (isGitHubActions ? '/TGBI_TO/' : './');
+  let base = './';
+  if (process.env.VITE_BASE_PATH) {
+    base = process.env.VITE_BASE_PATH;
+  } else if (process.env.GITHUB_REPOSITORY) {
+    const parts = process.env.GITHUB_REPOSITORY.split('/');
+    const repoName = parts[1];
+    base = repoName ? `/${repoName}/` : './';
+  }
 
   return {
     base,
