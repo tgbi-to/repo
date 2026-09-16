@@ -10,4 +10,3 @@
 ## Other Important Links
 - **Offer A New's (News Submission)**: https://docs.google.com/forms/d/e/1FAIpQLSdIKMYInpedFlD7XGyTmYzG5z_nCXDRun9MuNDKpZCZx8onjQ/viewform
 - **Start a Project - offer your Idea**: https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform
-- **The Guardians Cooperative**: https://script.google.com/macros/s/AKfycbxSWSRk_sah3i_5bV8PvXgRtW-KUXW35OsblJuZkD3wXwTVU7wRVYk_IbG10yz-fGus/exec

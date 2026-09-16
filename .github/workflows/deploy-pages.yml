@@ -28,6 +28,8 @@ jobs:
         run: npm ci || npm install
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE_PATH: /TGBI_TO/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

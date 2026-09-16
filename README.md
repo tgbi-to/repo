@@ -115,40 +115,20 @@ This repository acts as both the central institutional archive and the codebase 
 
 ---
 
-## 💻 Web Portal Development & Local Run
-
-To run and edit the web portal locally:
-
-### Prerequisites
-- Node.js (version 20 or later recommended)
-- npm or bun
-
-### Setup & Execution
-```bash
-# 1. Clone your repository
-git clone https://github.com/tgbi-to/TGBI_TO.git
-cd TGBI_TO
-
-# 2. Install project dependencies
-npm install
-
-# 3. Start local development server
-npm run dev
-
-# 4. Compile and verify production build
-npm run build
-```
-
----
-
-## 📝 Official Google Forms & Applications
+## 📝 Official Google Forms & Communications
 
 * **Official Online Membership Application:**  
-  [https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform](https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform)
+  [Membership Form](https://docs.google.com/forms/d/e/1FAIpQLSd1ykxvUvAQDeK5oMX_8cPyBtPXTPwySnPvCbAroRsYflWXyA/viewform?usp=sf_link)
+* **Official ID & Certificate Issuance Form:**  
+  [ID & Certificate Form](https://docs.google.com/forms/d/e/1FAIpQLSerUSzdelAZefEeRHbA8CIMpEbbNb_1VVEEGTpFf0fQCP7Euw/viewform?usp=sf_link)
+* **Official Contact Us & Inquiry Form:**  
+  [Contact Us Form](https://docs.google.com/forms/d/e/1FAIpQLSe5HjtwbEKrKWVJfyFFrYzUx_ksclfyo5kul03-IchxexOv-w/viewform)
+* **Register Chapter Contacts:**  
+  [Chapter Directory Form](https://docs.google.com/forms/d/e/1FAIpQLScPeTymetoyjtV5Q30SshvxYYqUTXc4y7XzBv9AO5MJVbtDag/viewform)
+* **Offer News & Media Submission:**  
+  [News Submission Form](https://docs.google.com/forms/d/e/1FAIpQLSdIKMYInpedFlD7XGyTmYzG5z_nCXDRun9MuNDKpZCZx8onjQ/viewform)
 * **Start an Organizational Project / Idea:**  
-  [https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform](https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform)
-* **The Guardians Cooperative Application:**  
-  [https://script.google.com/macros/s/AKfycbxSWSRk_sah3i_5bV8PvXgRtW-KUXW35OsblJuZkD3wXwTVU7wRVYk_IbG10yz-fGus/exec](https://script.google.com/macros/s/AKfycbxSWSRk_sah3i_5bV8PvXgRtW-KUXW35OsblJuZkD3wXwTVU7wRVYk_IbG10yz-fGus/exec)
+  [Project Idea Form](https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform)
 
 ---
 

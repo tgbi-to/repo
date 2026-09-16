@@ -381,8 +381,7 @@ export const OFFICIAL_LINKS = {
   idAndCertForm: "https://docs.google.com/forms/d/e/1FAIpQLSerUSzdelAZefEeRHbA8CIMpEbbNb_1VVEEGTpFf0fQCP7Euw/viewform?usp=sf_link",
   registerChapterContacts: "https://docs.google.com/forms/d/e/1FAIpQLScPeTymetoyjtV5Q30SshvxYYqUTXc4y7XzBv9AO5MJVbtDag/viewform",
   offerNews: "https://docs.google.com/forms/d/e/1FAIpQLSdIKMYInpedFlD7XGyTmYzG5z_nCXDRun9MuNDKpZCZx8onjQ/viewform",
-  startProject: "https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform",
-  cooperative: "https://script.google.com/macros/s/AKfycbxSWSRk_sah3i_5bV8PvXgRtW-KUXW35OsblJuZkD3wXwTVU7wRVYk_IbG10yz-fGus/exec"
+  startProject: "https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform"
 };
 
 export const ANNOUNCEMENTS = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MapPin, Building, ShieldAlert, ExternalLink, MessageSquare, Lightbulb, Users } from 'lucide-react';
+import { Mail, MapPin, Building, ShieldAlert, ExternalLink, MessageSquare, Lightbulb } from 'lucide-react';
 import { ORGANIZATIONAL_INFO, OFFICIAL_LINKS } from '../data/tgbitoData';
 
 export const ContactSection: React.FC = () => {
@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <a
               href={OFFICIAL_LINKS.contactForm}
               target="_blank"
@@ -132,19 +132,6 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-center gap-2.5">
                 <Lightbulb className="w-4 h-4 text-amber-600" />
                 <span className="text-xs font-semibold text-slate-800">Start a Project (Idea)</span>
-              </div>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-            </a>
-
-            <a
-              href={OFFICIAL_LINKS.cooperative}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 rounded-xl bg-white border border-slate-200 hover:border-[#0038A8] hover:shadow-sm transition-all flex items-center justify-between"
-            >
-              <div className="flex items-center gap-2.5">
-                <Users className="w-4 h-4 text-indigo-600" />
-                <span className="text-xs font-semibold text-slate-800">Guardians Cooperative</span>
               </div>
               <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
             </a>

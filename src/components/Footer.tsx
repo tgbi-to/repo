@@ -73,11 +73,6 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href={OFFICIAL_LINKS.cooperative} target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors">
-                  The Guardians Cooperative
-                </a>
-              </li>
-              <li>
                 <a href="mailto:theguardiansv@gmail.com" className="hover:text-amber-400 transition-colors">
                   theguardiansv@gmail.com
                 </a>
