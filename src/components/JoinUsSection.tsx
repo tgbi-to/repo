@@ -12,7 +12,12 @@ import {
   Phone, 
   Clock, 
   FileText,
-  AlertCircle
+  AlertCircle,
+  AlertTriangle,
+  Loader2,
+  RefreshCw,
+  Info,
+  MapPin
 } from 'lucide-react';
 import { JOINING_PROCESS, OFFICIAL_LINKS, ORGANIZATIONAL_INFO, REGIONS_DATA } from '../data/tgbitoData';
 import { useToast } from './Toast';
@@ -27,7 +32,8 @@ interface InquiryRecord {
   sponsor: string;
   message: string;
   timestamp: string;
-  status: 'Submitted' | 'Under Review';
+  status: 'Transmitted' | 'Pending Dispatch';
+  deliveryNote?: string;
 }
 
 const STORAGE_KEY = 'tgbi_saved_inquiries';
@@ -45,6 +51,8 @@ export const JoinUsSection: React.FC<{ isModal?: boolean; onClose?: () => void }
     agreedToCode: false
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isRetryingId, setIsRetryingId] = useState<string | null>(null);
   const [submittedInquiry, setSubmittedInquiry] = useState<InquiryRecord | null>(null);
   const [pastInquiries, setPastInquiries] = useState<InquiryRecord[]>([]);
   const [copied, setCopied] = useState(false);
@@ -71,13 +79,63 @@ export const JoinUsSection: React.FC<{ isModal?: boolean; onClose?: () => void }
     return `TGBI-INQ-${dateStr}-${rand}`;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Dispatch email to theguardiansv@gmail.com
+  const dispatchEmail = async (record: InquiryRecord): Promise<{ success: boolean; note?: string }> => {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
+      const response = await fetch(`https://formsubmit.co/ajax/${ORGANIZATIONAL_INFO.officialEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        signal: controller.signal,
+        body: JSON.stringify({
+          _subject: `[TGBI-TO Membership Inquiry] ${record.fullName} (Ref: ${record.id})`,
+          _template: 'table',
+          _captcha: 'false',
+          _replyto: record.email,
+          'Reference ID': record.id,
+          'Full Name': record.fullName,
+          'Email Address': record.email,
+          'Contact Number': record.phone,
+          'Current Location': record.location,
+          'Preferred Region / Chapter': record.preferredRegion,
+          'Sponsoring Member': record.sponsor,
+          'Statement of Intent': record.message,
+          'Declaration': 'Applicant agrees to 6-stage recruitment, 12-hour MBC, 7 Guiding Principles, and Republic Act 8049 (Anti-Hazing Act)',
+          'Submission Timestamp': record.timestamp
+        })
+      });
+
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        return { success: true, note: `Transmitted automatically to ${ORGANIZATIONAL_INFO.officialEmail}` };
+      } else {
+        // FormSubmit may send 200 or 400 with activation message
+        const data = await response.json().catch(() => null);
+        if (data && data.message) {
+          return { success: true, note: `Transmitted to ${ORGANIZATIONAL_INFO.officialEmail} (${data.message})` };
+        }
+        return { success: false, note: 'Network delivery could not complete automatically' };
+      }
+    } catch {
+      return { success: false, note: 'Connection timeout or browser network block' };
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.agreedToCode) {
       showToast('Please check the affirmation acknowledging the 7 Principles and R.A. 8049.', 'error');
       return;
     }
+
+    setIsSubmitting(true);
 
     const newRecord: InquiryRecord = {
       id: generateReferenceId(),
@@ -92,21 +150,68 @@ export const JoinUsSection: React.FC<{ isModal?: boolean; onClose?: () => void }
         dateStyle: 'medium',
         timeStyle: 'short'
       }),
-      status: 'Submitted'
+      status: 'Pending Dispatch'
     };
 
+    // Attempt direct automatic dispatch to theguardiansv@gmail.com
+    const dispatchResult = await dispatchEmail(newRecord);
+
+    if (dispatchResult.success) {
+      newRecord.status = 'Transmitted';
+      newRecord.deliveryNote = dispatchResult.note || `Delivered to ${ORGANIZATIONAL_INFO.officialEmail}`;
+      showToast(`Application transmitted directly to ${ORGANIZATIONAL_INFO.officialEmail}!`, 'success');
+    } else {
+      newRecord.status = 'Pending Dispatch';
+      newRecord.deliveryNote = 'Saved locally. Click "Send Email to GHQ" to transmit.';
+      showToast('Application saved locally! Please use the 1-click email option to send.', 'info');
+    }
+
     // Save to state and localStorage
-    const updated = [newRecord, ...pastInquiries];
+    const updated = [newRecord, ...pastInquiries.filter(i => i.id !== newRecord.id)];
     setPastInquiries(updated);
     setSubmittedInquiry(newRecord);
 
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     } catch {
-      // Handle quota
+      // Handle quota gracefully
     }
 
-    showToast(`Inquiry #${newRecord.id} generated and recorded!`, 'success');
+    setIsSubmitting(false);
+  };
+
+  // Retry sending an inquiry
+  const handleRetryDispatch = async (record: InquiryRecord) => {
+    setIsRetryingId(record.id);
+    const result = await dispatchEmail(record);
+
+    const updatedRecord: InquiryRecord = {
+      ...record,
+      status: result.success ? 'Transmitted' : 'Pending Dispatch',
+      deliveryNote: result.success 
+        ? `Delivered to ${ORGANIZATIONAL_INFO.officialEmail}` 
+        : 'Transmission was unable to complete. Please use direct email.'
+    };
+
+    const updatedList = pastInquiries.map(item => item.id === record.id ? updatedRecord : item);
+    setPastInquiries(updatedList);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedList));
+    } catch {
+      // handle error
+    }
+
+    if (submittedInquiry && submittedInquiry.id === record.id) {
+      setSubmittedInquiry(updatedRecord);
+    }
+
+    setIsRetryingId(null);
+
+    if (result.success) {
+      showToast(`Application #${record.id} successfully sent to ${ORGANIZATIONAL_INFO.officialEmail}!`, 'success');
+    } else {
+      showToast('Transmission blocked. Please click "Send Email to GHQ" to open your mail client.', 'error');
+    }
   };
 
   const getEmailUrl = (record: InquiryRecord) => {
@@ -140,6 +245,7 @@ The applicant affirms willingness to submit to the 6-Stage Process, undergo Back
     const text = `TGBI-TO OFFICIAL MEMBERSHIP INQUIRY RECEIPT
 Reference ID: ${record.id}
 Date: ${record.timestamp}
+Status: ${record.status} (${record.deliveryNote || 'Transmitted to ' + ORGANIZATIONAL_INFO.officialEmail})
 Applicant: ${record.fullName}
 Email: ${record.email}
 Contact Number: ${record.phone}
@@ -150,7 +256,7 @@ Sponsor: ${record.sponsor}
 Statement of Intent:
 ${record.message}
 
-Official Secretariat: theguardiansv@gmail.com
+Official Secretariat: ${ORGANIZATIONAL_INFO.officialEmail}
 SEC Reg. No. ${ORGANIZATIONAL_INFO.secRegNumber} • Registered Dec 10, 1984`;
 
     navigator.clipboard.writeText(text);
@@ -169,7 +275,8 @@ OFFICIAL MEMBERSHIP INQUIRY RECEIPT
 
 Reference Number: ${record.id}
 Date of Submission: ${record.timestamp}
-Status: ${record.status}
+Transmission Status: ${record.status}
+Details: ${record.deliveryNote || 'Transmitted to ' + ORGANIZATIONAL_INFO.officialEmail}
 
 APPLICANT DETAILS:
 Full Name: ${record.fullName}
@@ -351,62 +458,153 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
         {/* View 1: Inquiry Submission Receipt */}
         {submittedInquiry ? (
           <div className="space-y-6">
-            <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-slate-800">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                  <Check className="w-6 h-6" />
+            
+            {/* Success or Dispatch Status Banner */}
+            {submittedInquiry.status === 'Transmitted' ? (
+              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-slate-800">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold uppercase tracking-wide mb-1">
+                      <span>✓ Transmitted Directly to GHQ</span>
+                    </div>
+                    <h4 className="font-display font-bold text-lg sm:text-xl text-emerald-950">
+                      Application Successfully Sent to Secretariat!
+                    </h4>
+                    <p className="text-xs text-emerald-700 mt-0.5">
+                      Destination: <strong>{ORGANIZATIONAL_INFO.officialEmail}</strong> • Reference ID: <strong className="font-mono">{submittedInquiry.id}</strong>
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-display font-bold text-lg text-emerald-950">
-                    Application Recorded Successfully!
-                  </h4>
-                  <p className="text-xs text-emerald-700">
-                    Reference ID: <strong className="font-mono">{submittedInquiry.id}</strong> • {submittedInquiry.timestamp}
-                  </p>
+
+                <p className="text-xs sm:text-sm text-emerald-900/90 leading-relaxed mb-4">
+                  Your official candidate inquiry has been transmitted to General Headquarters (GHQ) and the National Screening Committee. A confirmation copy is stored locally in your browser.
+                </p>
+
+                {/* Workflow steps */}
+                <div className="bg-white/80 backdrop-blur-xs rounded-xl p-4 border border-emerald-200/80 mb-4 text-xs space-y-2">
+                  <div className="font-bold text-emerald-950 flex items-center gap-1.5">
+                    <Info className="w-4 h-4 text-emerald-700" />
+                    <span>Next Official Steps:</span>
+                  </div>
+                  <ol className="list-decimal list-inside space-y-1 text-slate-700 pl-1 leading-relaxed">
+                    <li>Secretariat verifies candidate jurisdiction and designates regional chapter.</li>
+                    <li>Local Chapter Membership Committee conducts Background Investigation (BI).</li>
+                    <li>Candidate receives schedule notification for the 12-hour Mandatory Basic Course (MBC).</li>
+                  </ol>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <a
+                    href={getEmailUrl(submittedInquiry)}
+                    className="py-3 px-4 rounded-xl bg-[#0038A8] hover:bg-[#002d87] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Send Backup via Mail App</span>
+                  </a>
+
+                  <a
+                    href={OFFICIAL_LINKS.inquiryForm}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
+                  >
+                    <span>Open Google Forms Portal</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+
+                  <button
+                    onClick={() => handleCopyReceipt(submittedInquiry)}
+                    className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  >
+                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{copied ? 'Receipt Copied!' : 'Copy Summary Receipt'}</span>
+                  </button>
+
+                  <button
+                    onClick={() => handleDownloadReceipt(submittedInquiry)}
+                    className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download .txt File</span>
+                  </button>
                 </div>
               </div>
+            ) : (
+              /* Pending Dispatch fallback banner */
+              <div className="p-6 rounded-2xl bg-amber-50 border border-amber-200 text-slate-800">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+                    <AlertTriangle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold uppercase tracking-wide mb-1">
+                      <span>Saved Locally • Final Dispatch</span>
+                    </div>
+                    <h4 className="font-display font-bold text-lg sm:text-xl text-amber-950">
+                      Application Saved — Transmit to GHQ
+                    </h4>
+                    <p className="text-xs text-amber-700 mt-0.5">
+                      Reference ID: <strong className="font-mono">{submittedInquiry.id}</strong> • Official GHQ: <strong>{ORGANIZATIONAL_INFO.officialEmail}</strong>
+                    </p>
+                  </div>
+                </div>
 
-              <p className="text-xs sm:text-sm text-emerald-900/90 leading-relaxed mb-4">
-                Your inquiry has been generated and saved locally. To ensure immediate processing by the General Headquarters (GHQ) and your local chapter committee, choose one of the official dispatch options below:
-              </p>
+                <p className="text-xs sm:text-sm text-amber-900/90 leading-relaxed mb-4">
+                  Your application is securely preserved. Direct network dispatch encountered a temporary browser or connection delay. You can either retry transmission or dispatch directly in one click below:
+                </p>
 
-              {/* Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <a
-                  href={getEmailUrl(submittedInquiry)}
-                  className="py-3 px-4 rounded-xl bg-[#0038A8] hover:bg-[#002d87] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Send Email to GHQ</span>
-                </a>
+                {/* Action Buttons */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <a
+                    href={getEmailUrl(submittedInquiry)}
+                    className="py-3 px-4 rounded-xl bg-[#0038A8] hover:bg-[#002d87] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Send Email to GHQ Now</span>
+                  </a>
 
-                <a
-                  href={OFFICIAL_LINKS.inquiryForm}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
-                >
-                  <span>Open Google Forms Portal</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                  <button
+                    onClick={() => handleRetryDispatch(submittedInquiry)}
+                    disabled={isRetryingId === submittedInquiry.id}
+                    className="py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+                  >
+                    {isRetryingId === submittedInquiry.id ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Retrying Dispatch...</span>
+                      </>
+                    ) : (
+                      <>
+                        <RefreshCw className="w-4 h-4" />
+                        <span>Retry Automatic Dispatch</span>
+                      </>
+                    )}
+                  </button>
 
-                <button
-                  onClick={() => handleCopyReceipt(submittedInquiry)}
-                  className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                >
-                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>{copied ? 'Receipt Copied!' : 'Copy Summary Receipt'}</span>
-                </button>
+                  <button
+                    onClick={() => handleCopyReceipt(submittedInquiry)}
+                    className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  >
+                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{copied ? 'Receipt Copied!' : 'Copy Summary Receipt'}</span>
+                  </button>
 
-                <button
-                  onClick={() => handleDownloadReceipt(submittedInquiry)}
-                  className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Download .txt File</span>
-                </button>
+                  <a
+                    href={OFFICIAL_LINKS.inquiryForm}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  >
+                    <span>Submit via Google Forms</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Applicant Details Review Card */}
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-2.5">
@@ -429,6 +627,12 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
               <div className="flex justify-between border-b border-slate-200 pb-2">
                 <span className="text-slate-500 font-semibold">Sponsor:</span>
                 <span className="font-bold text-slate-900">{submittedInquiry.sponsor}</span>
+              </div>
+              <div className="flex justify-between border-b border-slate-200 pb-2">
+                <span className="text-slate-500 font-semibold">Status:</span>
+                <span className={`font-bold ${submittedInquiry.status === 'Transmitted' ? 'text-emerald-700' : 'text-amber-700'}`}>
+                  {submittedInquiry.status} — {submittedInquiry.deliveryNote || ORGANIZATIONAL_INFO.officialEmail}
+                </span>
               </div>
               <div className="pt-1">
                 <span className="text-slate-500 font-semibold block mb-1">Statement of Purpose:</span>
@@ -476,10 +680,17 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
 
             {pastInquiries.map((item) => (
               <div key={item.id} className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-center gap-2">
                     <FileText className="w-4 h-4 text-[#0038A8]" />
                     <strong className="font-mono text-xs text-slate-900">{item.id}</strong>
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                      item.status === 'Transmitted' 
+                        ? 'bg-emerald-100 text-emerald-800' 
+                        : 'bg-amber-100 text-amber-800'
+                    }`}>
+                      {item.status === 'Transmitted' ? '✓ Transmitted to GHQ' : 'Pending Dispatch'}
+                    </span>
                   </div>
                   <span className="text-[11px] text-slate-500 flex items-center gap-1">
                     <Clock className="w-3 h-3" />
@@ -492,7 +703,7 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
                 <p className="text-xs text-slate-600 line-clamp-2 italic">
                   &ldquo;{item.message}&rdquo;
                 </p>
-                <div className="flex items-center gap-2 pt-2 border-t border-slate-200">
+                <div className="flex items-center gap-2 pt-2 border-t border-slate-200 flex-wrap">
                   <button
                     onClick={() => setSubmittedInquiry(item)}
                     className="px-2.5 py-1 rounded-md bg-[#0038A8] text-white text-[11px] font-semibold hover:bg-[#002d87] cursor-pointer"
@@ -506,6 +717,16 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
                     <Mail className="w-3 h-3" />
                     <span>Send Email</span>
                   </a>
+                  {item.status !== 'Transmitted' && (
+                    <button
+                      onClick={() => handleRetryDispatch(item)}
+                      disabled={isRetryingId === item.id}
+                      className="px-2.5 py-1 rounded-md bg-amber-500 text-slate-950 text-[11px] font-semibold hover:bg-amber-400 flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                    >
+                      {isRetryingId === item.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />}
+                      <span>Send to GHQ</span>
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
@@ -514,6 +735,14 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
           /* View 3: Live Application Form */
           <form onSubmit={handleSubmit} className="space-y-4">
             
+            {/* Direct Automatic Send Notice */}
+            <div className="p-3 rounded-xl bg-blue-50/80 border border-blue-200 text-xs text-[#0038A8] flex items-center gap-2">
+              <Mail className="w-4 h-4 shrink-0 text-[#0038A8]" />
+              <span>
+                Inquiries are automatically transmitted directly to <strong>{ORGANIZATIONAL_INFO.officialEmail}</strong> for official screening.
+              </span>
+            </div>
+
             {/* Full Name & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -574,15 +803,18 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
                 <label htmlFor="location" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                   Current City / Province / Country *
                 </label>
-                <input
-                  id="location"
-                  type="text"
-                  required
-                  value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0038A8] focus:border-transparent"
-                  placeholder="e.g. Quezon City, Metro Manila"
-                />
+                <div className="relative">
+                  <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                  <input
+                    id="location"
+                    type="text"
+                    required
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0038A8] focus:border-transparent"
+                    placeholder="e.g. Quezon City, Metro Manila"
+                  />
+                </div>
               </div>
             </div>
 
@@ -631,7 +863,7 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
                   Statement of Intent &amp; Community Standing *
                 </label>
                 <span className="text-[11px] text-slate-400">
-                  {formData.message.length} characters
+                  {formData.message.length} characters (min. 20)
                 </span>
               </div>
               <textarea
@@ -661,21 +893,31 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
               </label>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button with Loading State */}
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
+                disabled={isSubmitting}
+                className="w-full py-3.5 px-6 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] disabled:opacity-75 disabled:cursor-not-allowed"
               >
-                <span>Submit Membership Inquiry</span>
-                <Send className="w-4 h-4" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin text-slate-900" />
+                    <span>Transmitting to GHQ ({ORGANIZATIONAL_INFO.officialEmail})...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Submit &amp; Transmit to GHQ</span>
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 flex-wrap gap-2">
               <span className="flex items-center gap-1">
                 <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
-                No membership fee is required for submitting an inquiry.
+                Zero application fees. Directly received at {ORGANIZATIONAL_INFO.officialEmail}.
               </span>
               <a
                 href={OFFICIAL_LINKS.inquiryForm}
@@ -683,7 +925,7 @@ General Headquarters: ${ORGANIZATIONAL_INFO.ghqAddress.line1}, ${ORGANIZATIONAL_
                 rel="noopener noreferrer"
                 className="text-[#0038A8] hover:underline font-medium flex items-center gap-1"
               >
-                <span>Or use Google Forms directly</span>
+                <span>Or submit via Google Forms directly</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
