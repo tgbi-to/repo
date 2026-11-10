@@ -320,5 +320,310 @@ Download the complete syllabus document from the official repository using the l
 - **ID & Certificate Issuance Form:** https://docs.google.com/forms/d/e/1FAIpQLSerUSzdelAZefEeRHbA8CIMpEbbNb_1VVEEGTpFf0fQCP7Euw/viewform?usp=sf_link
 - **News & Media Submission:** https://docs.google.com/forms/d/e/1FAIpQLSdIKMYInpedFlD7XGyTmYzG5z_nCXDRun9MuNDKpZCZx8onjQ/viewform
 - **Start an Organizational Project / Idea:** https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform`
+  },
+  {
+    id: "magna-carta-for-guardians-pdf",
+    title: "Magna Carta for Guardians",
+    desc: "Foundational Charter of Rights, Responsibilities, Leadership, Accountability, and Brotherhood under the Seven Guiding Principles.",
+    filename: "TGBI_TO_Magna_Carta_for_Guardians_FINAL_CHECKED_d26fc52c.pdf",
+    category: "governance",
+    categoryLabel: "Magna Carta & Governance",
+    type: "Foundational Charter (PDF)",
+    format: "PDF",
+    dateOrVersion: "Adopted Oct 24, 2026 (Board Res. 10-002)",
+    githubUrl: `${GITHUB_REPO_URL}/blob/main/docs/cbl/TGBI_TO_Magna_Carta_for_Guardians_FINAL_CHECKED.pdf`,
+    rawUrl: `${GITHUB_RAW_BASE_URL}/docs/cbl/TGBI_TO_Magna_Carta_for_Guardians_FINAL_CHECKED.pdf`,
+    localPdfPath: "/assets/aistudio/TGBI_TO_Magna_Carta_for_Guardians_FINAL_CHECKED_d26fc52c.pdf",
+    readContent: `# THE GUARDIANS BROTHERHOOD INCORPORATED – THE ORIGINAL
+# MAGNA CARTA FOR GUARDIANS
+### Charter of Rights, Responsibilities, Leadership, Accountability, and Brotherhood
+**"I AM GUARDIANS"**
+
+---
+
+## PREAMBLE
+We, the officers and members of The Guardians Brotherhood Incorporated – The Original (TGBI-TO), united in the true spirit of Brotherhood and guided by our Seven Guiding Principles—Brotherhood, Equality, Peace, Justice, Integrity, Discipline, and Service—do hereby establish this Magna Carta of the GUARDIANS.
+
+This Magna Carta recognizes that all Guardians possesses dignity and legitimate organizational rights, while every right carries a corresponding duty and every position of authority carries a corresponding responsibility.
+
+It is established to strengthen unity, preserve discipline, promote professionalism, protect the dignity of all Guardians, and ensure responsible exercise of authority throughout the Brotherhood.
+
+This Magna Carta shall serve as a guiding charter and shall be interpreted consistently with the Articles of Incorporation, By-Laws, duly approved policies and resolutions of TGBI-TO, and applicable law.
+
+---
+
+## ARTICLE I – THE GUARDIANS SEVEN GUIDING PRINCIPLES
+- **Section 1. Brotherhood:** We recognize one another as members of one Brotherhood and shall promote mutual respect, unity, assistance, and loyalty.
+- **Section 2. Integrity:** All Guardians shall act honestly and honorably and shall protect the trust placed in him or her.
+- **Section 3. Peace:** Differences shall be addressed through communication, understanding, reconciliation, and proper organizational procedures.
+- **Section 4. Justice:** Organizational decisions and disciplinary actions shall be handled fairly, consistently, and through proper procedures.
+- **Section 5. Equality:** All Guardians deserves dignity and fair treatment, without prejudice based solely on personal status, while legitimate distinctions of rank, office, qualification, and responsibility remain recognized.
+- **Section 6. Discipline:** All Guardians shall respect legitimate authority, organizational rules, proper procedures, and the established chain of command.
+- **Section 7. Service:** Leadership exists principally to serve the Brotherhood and its members.
+
+---
+
+## ARTICLE II – RIGHTS OF GUARDIANS
+1. To be treated with dignity and respect.
+2. To participate in legitimate Brotherhood activities according to membership status and applicable rules.
+3. To communicate legitimate and proper concerns through proper channels.
+4. To receive information concerning rules and policies applicable to membership.
+5. To express constructive suggestions and opinions respectfully.
+6. To receive fair consideration of legitimate complaints.
+7. To know the nature of a formal disciplinary allegation against him or her, when applicable.
+8. To have a reasonable opportunity to explain and answer an allegation.
+9. To request review or appeal where provided by organizational rules.
+10. To be protected from harassment, humiliation, retaliation, or abuse of authority.
+11. To expect officers to exercise authority responsibly.
+12. To receive equal respect regardless of rank, while recognizing the legitimate authority attached to organizational position.
+
+---
+
+## ARTICLE III – DUTIES OF GUARDIANS
+1. Uphold the honor of TGBI-TO.
+2. Follow the Constitution, By-Laws, policies, and legitimate directives of the Brotherhood.
+3. Respect the chain of command.
+4. Maintain discipline during official activities.
+5. Conduct himself or herself professionally in person and in electronic communications.
+6. Accept legitimate and constructive criticism with maturity.
+7. Correct mistakes when they are established.
+8. Avoid unnecessary personal conflicts and factionalism.
+9. Protect confidential Brotherhood information.
+10. Fulfill applicable financial and organizational obligations.
+11. Assist fellow Guardians when reasonably possible.
+12. Protect the name, identity, logo, documents, and property of TGBI-TO.
+13. Refrain from representing personal opinions without authority.
+14. Maintain loyalty to the Brotherhood while respecting lawful authority and organizational rules.
+
+---
+
+## ARTICLE IV – THE RESPONSIBILITY OF RANK
+Rank shall never be regarded merely as a privilege. The higher the rank, the greater the responsibility.
+Every officer shall understand that:
+- Rank carries accountability.
+- Authority carries responsibility.
+- Promotion carries increased obligations.
+- Leadership requires an example.
+- Service must come before personal recognition.
+An officer who exercises authority shall remain accountable for the manner in which that authority is exercised.
+
+---
+
+## ARTICLE V – LEADERSHIP AND ACCOUNTABILITY
+- **Section 1. Leadership by Example:** Officers shall demonstrate discipline, professionalism, integrity, humility, and respect.
+- **Section 2. No Abuse of Authority:** No officer shall use rank or position to threaten or intimidate members, obtain improper personal advantage, retaliate against a member for a legitimate complaint, humiliate other Guardians, suppress legitimate concerns through fear, or exercise authority beyond the authority granted by the organization.
+- **Section 3. Responsibility to Members:** Officers shall reasonably listen to concerns brought through proper channels and shall act in accordance with organizational procedures.
+- **Section 4. Accountability:** An officer is not exempt from accountability because of rank.
+
+---
+
+## ARTICLE VI – CHAIN OF COMMAND AND PROPER CHANNELS
+The chain of command shall be respected as a fundamental mechanism of organizational order and accountability. Official recommendations, requests, complaints, reports, and communication should pass through the appropriate channel whenever practicable. The chain of command shall not be used to prevent legitimate concerns from reaching the competent authority. When a matter cannot reasonably be resolved at one level, it may be elevated through the proper organizational channel.
+
+---
+
+## ARTICLE VII – PROFESSIONALISM & GUARDIANS DOCTRINE
+All Guardians shall maintain professionalism in official meetings, Brotherhood activities, group chats, social media communication concerning TGBI-TO, public representations of the organization, and dealings with fellow members and officers.
+- Disagreement is not automatically disloyalty.
+- Correction is not automatically disrespectful.
+- Guardians shall learn to distinguish constructive criticism from personal attack and shall respond with maturity.
+
+> **GUARDIANS DOCTRINE:**  
+> *"We may disagree without destroying the Brotherhood.  
+> We may correct one another without humiliating one another.  
+> We may admit our mistakes without losing our dignity."*
+
+---
+
+## ARTICLE VIII – GRIEVANCES AND COMPLAINTS
+- **Section 1. Right to File:** All Guardians may file a complaint concerning alleged misconduct, violation of this Magna Carta, organizational rules, abuse of authority, harassment, discrimination, retaliation, or other legitimate organizational concern.
+- **Section 2. Forms and Contents:** Written report with complainant's name/contact, person complained of, facts, dates, witnesses, evidence, and requested resolution.
+- **Section 3. Receipt and Acknowledgement:** Written acknowledgement within seven (7) calendar days.
+- **Section 4. Initial Assessment:** Assessment within fifteen (15) calendar days. A complaint shall not be dismissed solely because the complainant is of lower rank or because it concerns a senior officer.
+- **Section 5. Informal Resolution:** Clarification, mediation, counseling, or reconciliation with voluntary consent. Formal investigation mandatory for violence, harassment, serious abuse of authority, retaliation, or financial misconduct.
+- **Section 6. Good-Faith Complaints:** Protection for good-faith complainants; prohibition against malicious filings.
+
+---
+
+## ARTICLE IX – DISCIPLINE AND DUE PROCESS
+- **Section 1. Notice of Allegation:** Written notice before formal disciplinary action.
+- **Section 2. Opportunity to Respond:** At least ten (10) calendar days to submit a written response and evidence.
+- **Section 3. Investigation:** Impartial investigation completed within thirty (30) calendar days.
+- **Section 4. Standard of Decision:** Based on evidence and consistent application of rules; no decisions based on rumor or rank.
+- **Section 5. Written Decision:** Issued within fifteen (15) calendar days summarizing facts, findings, and appeal procedure.
+- **Section 6. Interim Measures:** Proportionate, non-punitive measures to protect parties and integrity of evidence.
+- **Section 7. Proportionality:** Progressive discipline (counseling, warning, reprimand, suspension, removal, termination).
+- **Section 8. Appeals:** Written appeal within fifteen (15) calendar days decided within thirty (30) calendar days by higher impartial authority.
+
+---
+
+## ARTICLE X – PROMOTION AND APPOINTMENT
+Promotion and appointment shall be based on trust, integrity, service, qualifications, conduct, leadership ability, and organizational need.
+> *"Promotion is not only recognition of service; it is acceptance of greater responsibility."*
+
+---
+
+## ARTICLE XI – FINANCIAL RESPONSIBILITY AND TRANSPARENCY
+1. Collection shall be properly documented.
+2. Authorized funds shall be used only for legitimate organizational purposes.
+3. Financial records shall be maintained.
+4. Reports shall be submitted to the appropriate authority.
+5. Brotherhood funds shall not be treated as personal funds.
+6. Financial concerns shall be raised through proper channel.
+
+---
+
+## ARTICLE XII – ORGANIZATIONAL IDENTITY AND PROPERTY
+The official name, logo, insignia, and property of TGBI-TO shall be protected from unauthorized use. No person shall speak officially for TGBI-TO without appropriate authority.
+
+---
+
+## ARTICLE XIII – CONFIDENTIALITY AND RESPONSIBLE COMMUNICATION
+Guardians shall protect confidential information. Practice:
+- Think before speaking.
+- Verify before sharing.
+- Understand before judging.
+- Resolve before escalating.
+
+---
+
+## ARTICLE XIV – UNITY AND CONFLICT RESOLUTION
+When conflict arises, seek clarification and peaceful resolution:
+> *"I was wrong. I will correct it."*
+
+---
+
+## ARTICLE XV – PROTECTION AGAINST RETALIATION
+Zero tolerance for retaliation against any Guardian filing a complaint, reporting misconduct, participating in an investigation, or providing truthful information. Retaliation is an independent disciplinary violation.
+
+---
+
+## ARTICLE XVI – RESPONSIBILITY OF SENIOR OFFICERS
+Preserve stability, guide subordinates, promote succession, correct misconduct through proper procedures, and mentor qualified Guardians.
+
+---
+
+## ARTICLE XVII – RESPONSIBILITY OF REGIONAL AND CHAPTER LEADERS
+Maintain accurate records, communicate with higher headquarters, implement policies, submit reports on time, and safeguard organizational funds.
+
+---
+
+## ARTICLE XVIII – THE DUTY OF BROTHERHOOD
+> *"What can the Brotherhood give me?"*  
+> But also:  
+> *"What can I contribute to the Brotherhood?"*
+
+---
+
+## ARTICLE XIX – INTERPRETATION AND GOVERNING AUTHORITY
+Hierarchical consistency with the Articles of Incorporation, By-Laws, duly adopted resolutions, approved policies, lawful directives, and applicable Philippine law.
+
+---
+
+## ARTICLE XX – AMENDMENT & THE GUARDIANS OATH OF COMMITMENT
+> **I am Guardians.**  
+> I pledge to uphold the dignity of the Brotherhood.  
+> I shall practice Brotherhood, Integrity, Peace, Justice, Equality, Discipline, and Service.  
+> I shall respect legitimate authority and the chain of command.  
+> I shall exercise responsibility when entrusted with authority.  
+> I shall accept corrections with humility and correct my mistakes with courage.  
+> I shall respect my fellow Guardians regardless of rank.  
+> I shall protect the name, honor, identity, and integrity of TGBI-TO.  
+> I shall serve not for personal glory, but for the good of the Brotherhood.  
+>  
+> **I shall remember that:**  
+> **RANK IS RESPONSIBILITY.**  
+> **AUTHORITY IS A TRUST.**  
+> **SERVICE IS A DUTY.**  
+> **DISCIPLINE IS OUR STRENGTH.**  
+> **UNITY IS OUR FOUNDATION.**  
+> **BROTHERHOOD IS OUR BOND.**  
+> **I AM GUARDIANS.**
+
+---
+
+### SIGNATORIES & APPROVAL:
+- **ELPIDIO SELETARIA JR. (LLB)** — Universal Pioneer Master Founder / International Chairman / Incorporator
+- **ELMO CABANLIG** — Master Founder / International Vice Chairman for Administration
+- **RONALD ABANTO** — Master Founder / International Vice Chairman for Operations
+- **OSCAR OZOA** — Master Founder / International Executive Secretary`
+  },
+  {
+    id: "bod-minutes-oct-2026-pdf",
+    title: "BOD Quarterly Meeting Minutes & Resolutions",
+    desc: "Official Minutes of the Board of Directors Online Meeting held on October 24, 2026, including Resolution 10-001 (Creed) and Resolution 10-002 (Magna Carta).",
+    filename: "BOD_s_Quarterly_Video_Conference_meeting__MoM__c970ee40.pdf",
+    category: "governance",
+    categoryLabel: "Magna Carta & Governance",
+    type: "Board Minutes & Resolutions (PDF)",
+    format: "PDF",
+    dateOrVersion: "October 24, 2026 (Official MoM)",
+    githubUrl: `${GITHUB_REPO_URL}/blob/main/docs/cbl/BOD_s_Quarterly_Video_Conference_meeting__MoM.pdf`,
+    rawUrl: `${GITHUB_RAW_BASE_URL}/docs/cbl/BOD_s_Quarterly_Video_Conference_meeting__MoM.pdf`,
+    localPdfPath: "/assets/aistudio/BOD_s_Quarterly_Video_Conference_meeting__MoM__c970ee40.pdf",
+    readContent: `# THE GUARDIANS BROTHERHOOD INCORPORATED – THE ORIGINAL
+## GENERAL HEADQUARTERS
+**43-A Pangasinan St., Bago Bantay, Quezon City, 1105 Philippines**  
+Tel: (63) 928-149-1498 • Email: argie_gadiana@msn.com / theguardiansv@gmail.com  
+**SEC Reg. No. 123899 Dated Dec. 10, 1984**
+
+---
+
+# TGBI-TO | BOARD OF DIRECTORS / BOARD SECRETARIAT
+## MINUTES OF THE ONLINE BOARD MEETING
+**Date:** Saturday, October 24, 2026  
+**Time:** 6:00 PM – 7:50 PM, Manila Time  
+**Platform:** Google Meet (https://meet.google.com/wau-krbr-oov)  
+**Presiding Officer:** Elpidio Seletaria Jr. LLB (“UPMF Carlo Magno”), International Chairman / Chairman of the Board  
+**Secretary:** Argie “NF SPARK” C. Gadiana, with “FDR NEEDLE” assisting
+
+---
+
+### II. BOARD OF DIRECTORS IN ATTENDANCE
+- **International Chairman:** Elpidio “UPMF CARLOMAGNO” Seletaria Jr. LLB
+- **Board Members:**
+  1. Elmo “MF ALAMID” Cabanlig (IVCA / Director)
+  2. Ronald “MF NALD” Abanto (IVCO / Director)
+  3. Oscar “MF PROGRAMMER” Ozoa (IES / Director)
+  4. Atty Soledad “SNF LOVELOTS” Sugatan (Legal Officer / Director)
+  5. Argie “NF SPARK” Gadiana (Corporate Secretary / Director)
+  6. Ruben “SNF TROOPER” Ferreras (Director)
+  7. Mark Gil “SNF YAGI” Berdigay (Director)
+  8. Carlito “SNF LAKAY2” Sanchez Jr. (Director)
+  9. David “SNF REPAKS” Magan (Director)
+  10. Jezreel Andre “SNF MALAKAS” Reyes (Director)
+  11. Robert “SNF PANTER” Araza (Director)
+  12. Chardie “SNF BLUEFACE” Agco (Director)
+
+**Attendance & Quorum:** 13 Total Board Members • 11 Present • Quorum Established: Yes  
+**Voting Results on Creed & Magna Carta:** 9 In Favor • None Against • 0 Abstained • Result: **ADOPTED**
+
+---
+
+### III. MATTERS DISCUSSED & KEY RESOLUTIONS
+
+1. **Adoption of the TGBI-TO Creed (Board Resolution No. 10-001, Series of 2026)**:
+   - Formally adopted by unanimous vote of voting quorum. Attached as Annex A.
+2. **Adoption of the TGBI-TO Magna Carta (Board Resolution No. 10-002, Series of 2026)**:
+   - Moved and adopted with immediate effect covering rights, duties, due process, leadership accountability, and anti-retaliation. Attached as Annex B.
+3. **42nd TGBI-TO Anniversary and Summit (Dec 12–13, 2026)**:
+   - **Dec 12:** 10:00 AM – 4:00 PM at Bethel Guest House; evening session at Banilad/Bacong Auditorium (5:00 PM to midnight) including Commander’s Time.
+   - **Dec 13:** Church service, motorcade, fellowship lunch and beach activities.
+   - **Delegates:** Free accommodations for Regional Founders, Commissioners, and Supreme Council members. Barong Tagalog attire and live broadcast.
+4. **Annual Recognition of Outstanding Officers & Members:**
+   - Nominations opened for Summit awards.
+5. **Membership & Promotions:**
+   - Recommendations with supporting documents to be submitted to **MF PROGRAMMER**, copying **SNF DATS'27**. Final approval by Chairman.
+6. **SEC Status Update:**
+   - Chairman follow-up with Atty. Lida.
+7. **Fundraising & Member Assistance:**
+   - Transparent aid protocol for active legitimate members in need.
+
+---
+
+### SIGNATORIES & TRANSMITTAL
+- **Prepared by:** Argie “NF SPARK” C. Gadiana (Board Secretary)
+- **Assisted by:** Ryan “FDR NEEDLE” Lagura (OIES)
+- **Reviewed & Approved by:** Elpidio Seletaria Jr. (“UPMF CARLOMAGNO”), Presiding Officer / Chairman of the Board`
   }
 ];

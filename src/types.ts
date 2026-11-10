@@ -69,12 +69,13 @@ export interface OfficialDocument {
   title: string;
   desc: string;
   filename: string;
-  category: 'cbl' | 'ethics' | 'history' | 'principles' | 'mbc' | 'contact';
+  category: 'cbl' | 'ethics' | 'history' | 'principles' | 'mbc' | 'contact' | 'governance';
   categoryLabel: string;
   type: string;
-  format: 'MD' | 'DOCX';
+  format: 'MD' | 'DOCX' | 'PDF';
   githubUrl: string;
   rawUrl: string;
+  localPdfPath?: string;
   readContent?: string;
   dateOrVersion?: string;
 }

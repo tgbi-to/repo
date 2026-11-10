@@ -28,6 +28,7 @@ export const DocumentsSection: React.FC<DocumentsSectionProps> = ({ onOpenDocume
 
   const categories = [
     { id: 'all', label: 'All Documents', count: OFFICIAL_DOCUMENTS.length },
+    { id: 'governance', label: 'Magna Carta & Board', count: OFFICIAL_DOCUMENTS.filter(d => d.category === 'governance').length },
     { id: 'cbl', label: 'Constitution & By-Laws', count: OFFICIAL_DOCUMENTS.filter(d => d.category === 'cbl').length },
     { id: 'ethics', label: 'Code of Ethics', count: OFFICIAL_DOCUMENTS.filter(d => d.category === 'ethics').length },
     { id: 'history', label: 'History & Archives', count: OFFICIAL_DOCUMENTS.filter(d => d.category === 'history').length },
@@ -201,6 +202,8 @@ export const DocumentsSection: React.FC<DocumentsSectionProps> = ({ onOpenDocume
                     <span className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded ${
                       doc.format === 'MD' 
                         ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
+                        : doc.format === 'PDF'
+                        ? 'bg-red-50 text-red-700 border border-red-200'
                         : 'bg-amber-50 text-amber-700 border border-amber-200'
                     }`}>
                       {doc.format}
@@ -251,7 +254,7 @@ export const DocumentsSection: React.FC<DocumentsSectionProps> = ({ onOpenDocume
                     </a>
 
                     <a
-                      href={doc.rawUrl}
+                      href={doc.localPdfPath || doc.rawUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       download={doc.filename}
@@ -295,7 +298,13 @@ export const DocumentsSection: React.FC<DocumentsSectionProps> = ({ onOpenDocume
                       <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
                         {doc.categoryLabel}
                       </span>
-                      <span className="text-[10px] font-mono font-bold uppercase px-1.5 py-0.5 rounded bg-blue-50 text-[#0038A8]">
+                      <span className={`text-[10px] font-mono font-bold uppercase px-1.5 py-0.5 rounded ${
+                        doc.format === 'MD'
+                          ? 'bg-emerald-50 text-emerald-700'
+                          : doc.format === 'PDF'
+                          ? 'bg-red-50 text-red-700'
+                          : 'bg-blue-50 text-[#0038A8]'
+                      }`}>
                         {doc.format}
                       </span>
                     </div>
@@ -328,12 +337,12 @@ export const DocumentsSection: React.FC<DocumentsSectionProps> = ({ onOpenDocume
                   </a>
 
                   <a
-                    href={doc.rawUrl}
+                    href={doc.localPdfPath || doc.rawUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     download={doc.filename}
                     className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200 min-h-[38px] min-w-[38px] flex items-center justify-center"
-                    title="Download raw file"
+                    title="Download official file"
                   >
                     <Download className="w-3.5 h-3.5" />
                   </a>

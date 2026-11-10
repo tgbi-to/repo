@@ -357,27 +357,120 @@ export const ANNOUNCEMENTS = [
   }
 ];
 
+export * from './chaptersData';
+
 export const REGIONS_DATA = [
   {
     country: "Philippines",
     region: "Region 7",
     province: "Cebu",
-    chapter: "Cebu City Chapter",
+    chapter: "R7 Cebu Regional Chapter (RF Arch Regional Founder)",
     path: "regions/ph/region-7/cebu/cebu-city"
   },
   {
-    country: "United States",
-    region: "California",
-    province: "Downey",
-    chapter: "Downey Chapter (OIC Jurisdiction)",
-    path: "regions/us/california/downey"
+    country: "Philippines",
+    region: "NCR",
+    province: "Metro Manila",
+    chapter: "NCR Regional Chapter (NF Lawinhead)",
+    path: "regions/ph/ncr"
+  },
+  {
+    country: "Philippines",
+    region: "Region 2",
+    province: "Macabebe",
+    chapter: "R2 Macabebe Chapter (Founder Needle)",
+    path: "regions/ph/region-2/macabebe"
+  },
+  {
+    country: "Philippines",
+    region: "Region 4B",
+    province: "MIMAROPA",
+    chapter: "R4B MIMAROPA Chapter (SNF Parjac Regional Founder)",
+    path: "regions/ph/region-4b/mimaropa"
+  },
+  {
+    country: "Philippines",
+    region: "Region 5",
+    province: "Bicol",
+    chapter: "R5 Bicol Regional Chapter (MF Nald Regional Founder)",
+    path: "regions/ph/region-5/bicol"
+  },
+  {
+    country: "Philippines",
+    region: "NIR",
+    province: "Negros Island",
+    chapter: "Negros Island Region Chapter (RF Sards)",
+    path: "regions/ph/nir/negros"
+  },
+  {
+    country: "Philippines",
+    region: "Region 6",
+    province: "Iloilo",
+    chapter: "R6 Passi City Iloilo Chapter (RF Abet Regional Founder)",
+    path: "regions/ph/region-6/iloilo"
+  },
+  {
+    country: "Kingdom of Saudi Arabia",
+    region: "International",
+    province: "Saudi Arabia",
+    chapter: "KSA Chapter (SNF JID Regional Founder)",
+    path: "regions/international/ksa"
+  },
+  {
+    country: "Macau SAR China",
+    region: "International",
+    province: "Macau",
+    chapter: "Macau SAR China Chapter (SNF Trooper Regional Founder)",
+    path: "regions/international/macau"
   },
   {
     country: "Brunei Darussalam",
     region: "International",
     province: "Brunei",
-    chapter: "Brunei Regional Chapter (Remittance Cleared)",
+    chapter: "Brunei Darussalam Regional Chapter (NF Climbu)",
     path: "regions/international/brunei"
+  },
+  {
+    country: "United Arab Emirates",
+    region: "International",
+    province: "UAE",
+    chapter: "UAE Regional Chapter (NF Alfred)",
+    path: "regions/international/uae"
+  },
+  {
+    country: "South Korea",
+    region: "International",
+    province: "South Korea",
+    chapter: "South Korea Regional Chapter (Interim Regional Founder)",
+    path: "regions/international/south-korea"
+  },
+  {
+    country: "International Fleet",
+    region: "International Maritime",
+    province: "Global Waters",
+    chapter: "Seafarer International Chapter (SNF Malakas)",
+    path: "regions/international/seafarers"
+  },
+  {
+    country: "Singapore",
+    region: "International",
+    province: "Singapore",
+    chapter: "Singapore Regional Chapter (NF Anne Rial)",
+    path: "regions/international/singapore"
+  },
+  {
+    country: "Turkey",
+    region: "International",
+    province: "Turkey",
+    chapter: "Turkey Regional Chapter (NF Yagi / Elmo)",
+    path: "regions/international/turkey"
+  },
+  {
+    country: "United States",
+    region: "International / USA",
+    province: "Downey, California",
+    chapter: "Downey Chapter (OIC Jurisdiction)",
+    path: "regions/us/california/downey"
   },
   {
     country: "Qatar",
@@ -385,12 +478,5 @@ export const REGIONS_DATA = [
     province: "Doha",
     chapter: "Qatar Regional Chapter (Remittance Cleared)",
     path: "regions/international/qatar"
-  },
-  {
-    country: "Philippines",
-    region: "NCR",
-    province: "Metro Manila",
-    chapter: "NCR Regional Chapters (Remittance Cleared)",
-    path: "regions/ph/ncr"
   }
 ];

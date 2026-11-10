@@ -179,12 +179,12 @@ export const DocumentReaderModal: React.FC<DocumentReaderModalProps> = ({
             </a>
 
             <a
-              href={document.rawUrl}
+              href={document.localPdfPath || document.rawUrl}
               target="_blank"
               rel="noopener noreferrer"
               download={document.filename}
               className="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
-              title="Download file"
+              title="Download official file"
             >
               <Download className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Download</span>
