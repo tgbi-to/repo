@@ -103,8 +103,8 @@ export const OFFICIAL_CHAPTERS_LIST: OfficialChapter[] = [
     category: 'International',
     regionOrCountry: 'Turkey',
     chapterName: 'Turkey Regional Chapter',
-    leadership: 'NF Yagi / Elmo',
-    leadershipRole: 'Regional Founder & Leadership',
+    leadership: 'NF Yagi',
+    leadershipRole: 'Regional Founder',
     flagEmoji: '🇹🇷',
     jurisdiction: 'Eurasia / Mediterranean Region',
     status: 'Recognized Chapter'

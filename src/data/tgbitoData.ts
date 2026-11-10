@@ -462,7 +462,7 @@ export const REGIONS_DATA = [
     country: "Turkey",
     region: "International",
     province: "Turkey",
-    chapter: "Turkey Regional Chapter (NF Yagi / Elmo)",
+    chapter: "Turkey Regional Chapter (NF Yagi Regional Founder)",
     path: "regions/international/turkey"
   },
   {
