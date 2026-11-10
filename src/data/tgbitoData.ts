@@ -476,7 +476,7 @@ export const REGIONS_DATA = [
     country: "Qatar",
     region: "International",
     province: "Doha",
-    chapter: "Qatar Regional Chapter (Remittance Cleared)",
+    chapter: "Qatar Regional Chapter (NF Virgo 69 Regional Founder)",
     path: "regions/international/qatar"
   }
 ];

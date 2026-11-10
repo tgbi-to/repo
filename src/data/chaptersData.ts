@@ -126,10 +126,10 @@ export const OFFICIAL_CHAPTERS_LIST: OfficialChapter[] = [
     category: 'International',
     regionOrCountry: 'Qatar',
     chapterName: 'Qatar Regional Chapter',
-    leadership: 'Regional Leadership',
-    leadershipRole: 'Regional Chapter Head',
+    leadership: 'NF Virgo 69',
+    leadershipRole: 'Regional Founder',
     flagEmoji: '🇶🇦',
-    jurisdiction: 'Middle East / Doha',
+    jurisdiction: 'Middle East / Doha & State of Qatar',
     notes: 'Remittance cleared for 41st Summit & Convention',
     status: 'Recognized Chapter'
   },
