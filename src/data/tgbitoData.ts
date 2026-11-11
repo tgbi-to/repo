@@ -249,6 +249,99 @@ export const LEADERSHIP_DATA = [
   }
 ];
 
+export interface BoardDirectorItem {
+  order: number;
+  name: string;
+  callSign: string;
+  role: string;
+  isChairman?: boolean;
+  prefix?: string;
+}
+
+export const BOARD_OF_DIRECTORS: BoardDirectorItem[] = [
+  {
+    order: 0,
+    name: "Elpidio Seletaria Jr.",
+    callSign: "UPMF CARLOMAGNO",
+    role: "International Chairman / Chairman of the Board",
+    isChairman: true,
+    prefix: "LLB"
+  },
+  {
+    order: 1,
+    name: "Elmo Cabanlig",
+    callSign: "MF ALAMID",
+    role: "IVCA / Director (International Vice Chairman for Administration)"
+  },
+  {
+    order: 2,
+    name: "Ronald Abanto",
+    callSign: "MF NALD",
+    role: "IVCO / Director (International Vice Chairman for Operations)"
+  },
+  {
+    order: 3,
+    name: "Oscar Ozoa",
+    callSign: "MF PROGRAMMER",
+    role: "IES / Director (International Executive Secretary)"
+  },
+  {
+    order: 4,
+    name: "Atty. Soledad Sugatan",
+    callSign: "SNF LOVELOTS",
+    role: "Legal Officer / Director",
+    prefix: "Atty."
+  },
+  {
+    order: 5,
+    name: "Argie Gadiana",
+    callSign: "SNF SPARK",
+    role: "Corporate Secretary / Director"
+  },
+  {
+    order: 6,
+    name: "Ruben Ferreras",
+    callSign: "SNF TROOPER",
+    role: "Director"
+  },
+  {
+    order: 7,
+    name: "Mark Gil Berdigay",
+    callSign: "SNF YAGT",
+    role: "Director"
+  },
+  {
+    order: 8,
+    name: "Carlito Sanchez Jr.",
+    callSign: "SNF LAKAY2",
+    role: "Director"
+  },
+  {
+    order: 9,
+    name: "David Magan",
+    callSign: "SNF REPAKS",
+    role: "Director"
+  },
+  {
+    order: 10,
+    name: "Jezreel Andre Reyes",
+    callSign: "SNF MALAKAS",
+    role: "Director"
+  },
+  {
+    order: 11,
+    name: "Robert Araza",
+    callSign: "SNF PANTER",
+    role: "Director"
+  },
+  {
+    order: 12,
+    name: "Chardie Agco",
+    callSign: "SNF BLUEFACE",
+    role: "Director"
+  }
+];
+
 export const JOINING_PROCESS = {
   eligibility: [
     "Filipino citizen (foreign nationals with significant contributions may be considered)",

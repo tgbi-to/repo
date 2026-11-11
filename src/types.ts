@@ -32,6 +32,16 @@ export interface Leader {
   isIncorporator?: boolean;
 }
 
+export interface BoardMember {
+  order?: number;
+  name: string;
+  callSign: string;
+  role: string;
+  rank?: string;
+  isChairman?: boolean;
+  division?: string;
+}
+
 export interface Chapter {
   id: string;
   name: string;

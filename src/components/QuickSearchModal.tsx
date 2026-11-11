@@ -115,6 +115,15 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
       keywords: ['history', 'diablo', '1976', '1984', 'carlomagno', 'abraham', 'origins']
     },
     {
+      id: 'sec-leadership',
+      title: 'Structure & Board of Directors (BoD)',
+      subtitle: 'International Chairman, 12 Directors, Executive Officers, and Levels 1-6',
+      category: 'Section',
+      icon: <Users className="w-4 h-4 text-[#0038A8]" />,
+      action: () => navigateToSection('leadership'),
+      keywords: ['board', 'directors', 'bod', 'leadership', 'carlomagno', 'alamid', 'nald', 'programmer', 'lovelots', 'spark', 'trooper', 'yagt', 'lakay2', 'repaks', 'malakas', 'panter', 'blueface']
+    },
+    {
       id: 'sec-documents',
       title: 'Documents Archive',
       subtitle: 'Verified Constitution, By-Laws, MBC courseware, and records',
