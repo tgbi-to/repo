@@ -534,7 +534,7 @@ export const REGIONS_DATA = [
     country: "South Korea",
     region: "International",
     province: "South Korea",
-    chapter: "South Korea Regional Chapter (Interim Regional Founder)",
+    chapter: "South Korea Regional Chapter (NF ROMY Regional Founder)",
     path: "regions/international/south-korea"
   },
   {

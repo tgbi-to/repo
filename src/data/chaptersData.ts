@@ -68,12 +68,11 @@ export const OFFICIAL_CHAPTERS_LIST: OfficialChapter[] = [
     category: 'International',
     regionOrCountry: 'South Korea',
     chapterName: 'South Korea Regional Chapter',
-    leadership: 'Interim Regional Leadership',
-    leadershipRole: 'Interim Regional Founder',
+    leadership: 'NF ROMY',
+    leadershipRole: 'Regional Founder',
     flagEmoji: '🇰🇷',
     jurisdiction: 'East Asia / Republic of Korea',
-    notes: 'Under Interim Regional Founder oversight',
-    status: 'Interim Jurisdiction'
+    status: 'Recognized Chapter'
   },
   {
     id: 'int-seafarer',
