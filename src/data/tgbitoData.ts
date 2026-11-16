@@ -506,7 +506,7 @@ export const REGIONS_DATA = [
     country: "Kingdom of Saudi Arabia",
     region: "International",
     province: "Saudi Arabia",
-    chapter: "KSA Chapter (SNF JID Regional Founder)",
+    chapter: "Saudi Arabia Regional Chapter (RF VINZMATT Regional Founder)",
     path: "regions/international/ksa"
   },
   {

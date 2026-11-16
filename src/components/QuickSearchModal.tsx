@@ -139,7 +139,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
       category: 'Section',
       icon: <Users className="w-4 h-4 text-emerald-600" />,
       action: () => navigateToSection('chapters'),
-      keywords: ['chapters', 'regions', 'directory', 'ncr', 'brunei', 'qatar', 'virgo 69', 'cebu', 'downey', 'saudi arabia', 'ksa', 'macau', 'uae', 'south korea', 'romy', 'nf romy', 'seafarer', 'singapore', 'turkey', 'macabebe', 'mimaropa', 'bicol', 'negros', 'passi', 'iloilo', 'founders']
+      keywords: ['chapters', 'regions', 'directory', 'ncr', 'brunei', 'qatar', 'virgo 69', 'cebu', 'downey', 'saudi arabia', 'ksa', 'vinzmatt', 'rf vinzmatt', 'macau', 'uae', 'south korea', 'romy', 'nf romy', 'seafarer', 'singapore', 'turkey', 'macabebe', 'mimaropa', 'bicol', 'negros', 'passi', 'iloilo', 'founders']
     },
     {
       id: 'sec-join',
