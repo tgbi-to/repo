@@ -13,6 +13,11 @@ export const Summit42Section: React.FC = () => {
   const [imgError, setImgError] = useState(false);
   const [isPosterOpen, setIsPosterOpen] = useState(false);
 
+  // Base URL aware path for GitHub Pages subfolder support (/repo/)
+  const envBase = (import.meta as unknown as { env?: { BASE_URL?: string } }).env?.BASE_URL || './';
+  const basePath = envBase.endsWith('/') ? envBase : `${envBase}/`;
+  const posterSrc = `${basePath}assets/aistudio/913275585_1657983775724207_3654643030254968495_n_32496322.jpg`;
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isPosterOpen) {
@@ -55,7 +60,7 @@ export const Summit42Section: React.FC = () => {
                   aria-label="Enlarge 42nd Founding Anniversary invitation poster"
                 >
                   <img
-                    src="/assets/aistudio/913275585_1657983775724207_3654643030254968495_n_32496322.jpg"
+                    src={posterSrc}
                     alt="Official Invitation Poster for TGBI-TO 42nd Founding Anniversary and Summit in Dumaguete City, December 12-13, 2026"
                     referrerPolicy="no-referrer"
                     onError={() => setImgError(true)}
@@ -213,7 +218,7 @@ export const Summit42Section: React.FC = () => {
               <span>Close</span>
             </button>
             <img
-              src="/assets/aistudio/913275585_1657983775724207_3654643030254968495_n_32496322.jpg"
+              src={posterSrc}
               alt="Official Invitation Poster for TGBI-TO 42nd Founding Anniversary and Summit"
               referrerPolicy="no-referrer"
               className="max-h-[82vh] w-auto rounded-xl shadow-2xl border border-amber-400/40 object-contain"
