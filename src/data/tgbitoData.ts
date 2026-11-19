@@ -436,7 +436,55 @@ export const OFFICIAL_LINKS = {
   idAndCertForm: "https://docs.google.com/forms/d/e/1FAIpQLSerUSzdelAZefEeRHbA8CIMpEbbNb_1VVEEGTpFf0fQCP7Euw/viewform?usp=sf_link",
   registerChapterContacts: "https://docs.google.com/forms/d/e/1FAIpQLScPeTymetoyjtV5Q30SshvxYYqUTXc4y7XzBv9AO5MJVbtDag/viewform",
   offerNews: "https://docs.google.com/forms/d/e/1FAIpQLSdIKMYInpedFlD7XGyTmYzG5z_nCXDRun9MuNDKpZCZx8onjQ/viewform",
-  startProject: "https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform"
+  startProject: "https://docs.google.com/forms/d/e/1FAIpQLScgAEjjwFyaf56FysR0jKTPCnz1jvoXxTUXdTwn698yVBDnFw/viewform",
+  summit42TshirtOrder: "https://forms.gle/j7fypjhZHiULSkvc6"
+};
+
+export const SUMMIT_42_INFO = {
+  title: "42nd Founding Anniversary & Summit",
+  theme: "42 Years of Brotherhood, Stronger Together",
+  subtitle: "Celebrating 42 Years of Brotherhood, Integrity and Service",
+  mantra: "I AM GUARDIANS.",
+  dates: "December 12 – 13, 2026",
+  earlyArrivals: "December 11, 2026",
+  hostChapter: "Negros Island Regional Chapter (NIR)",
+  hostCity: "Dumaguete City, Negros Oriental",
+  primaryVenue: "Bethel Guest House",
+  eveningVenue: "Banilad / Bacong Auditorium",
+  attire: "Barong Tagalog (Formal Ceremonies)",
+  posterPath: "/assets/aistudio/913275585_1657983775724207_3654643030254968495_n_32496322.jpg",
+  tshirtOrderUrl: "https://forms.gle/j7fypjhZHiULSkvc6",
+  invitationLead:
+    "Let us come together in unity and brotherhood as we commemorate another milestone in our journey of serving our fellow Guardians, our community, and our country.",
+  closingNote:
+    "Let us honor our past, strengthen our present, and build a greater future for TGBI-TO.",
+  schedule: [
+    {
+      day: "Day 1 · Saturday, December 12, 2026",
+      sessions: [
+        {
+          time: "10:00 AM – 4:00 PM",
+          title: "Anniversary Summit & General Assembly",
+          location: "Bethel Guest House, Dumaguete City"
+        },
+        {
+          time: "5:00 PM – 12:00 MN",
+          title: "Evening Gala, Outstanding Officer Awards & Commander's Time",
+          location: "Banilad / Bacong Auditorium"
+        }
+      ]
+    },
+    {
+      day: "Day 2 · Sunday, December 13, 2026",
+      sessions: [
+        {
+          time: "Morning – Afternoon",
+          title: "Thanksgiving Church Service, Brotherhood Motorcade & Beach Fellowship",
+          location: "Dumaguete City & Coastal Fellowship Venue"
+        }
+      ]
+    }
+  ]
 };
 
 export const ANNOUNCEMENTS = [

@@ -152,9 +152,9 @@ export const HeroSection: React.FC = () => {
         {/* Scroll down indicator */}
         <div className="mt-10 flex justify-center">
           <a
-            href="#about"
+            href="#summit-42"
             className="p-2 text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
-            aria-label="Scroll to About Section"
+            aria-label="Scroll to 42nd Founding Anniversary and Summit Section"
           >
             <ChevronDown className="w-6 h-6 animate-bounce" />
           </a>

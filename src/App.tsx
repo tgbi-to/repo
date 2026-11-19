@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { MobileBottomBar } from './components/MobileBottomBar';
 import { HeroSection } from './components/HeroSection';
+import { Summit42Section } from './components/Summit42Section';
 import { AboutSection } from './components/AboutSection';
 import { MissionVisionSection } from './components/MissionVisionSection';
 import { PrinciplesSection } from './components/PrinciplesSection';
@@ -49,6 +50,7 @@ export default function App() {
     const handleScroll = () => {
       const sectionIds = [
         'home',
+        'summit-42',
         'about',
         'mission',
         'principles',
@@ -93,6 +95,9 @@ export default function App() {
         <main className="flex-1 w-full">
           {/* 1. Hero Section with SEC verification and GitHub repository links */}
           <HeroSection />
+
+          {/* 1B. 42nd Founding Anniversary & Summit Information + Official T-Shirt Order */}
+          <Summit42Section />
 
           {/* 2. About TGBI-TO: Welcome, Identity, G-U-A-R-D-I-A-N-S Acronym & Filipino Translation */}
           <AboutSection />

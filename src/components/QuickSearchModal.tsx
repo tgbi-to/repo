@@ -70,6 +70,15 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
   const searchItems: SearchItem[] = [
     // Sections
     {
+      id: 'sec-summit-42',
+      title: '42nd Founding Anniversary & Summit',
+      subtitle: 'Dec 12–13, 2026 · Dumaguete City (Bethel Guest House) · Host: NIR',
+      category: 'Section',
+      icon: <Compass className="w-4 h-4 text-amber-600" />,
+      action: () => navigateToSection('summit-42'),
+      keywords: ['42', '42nd', 'summit', 'anniversary', 'dumaguete', 'bethel guest house', 'banilad', 'bacong', 'nir', 'negros', 'december 2026', 't-shirt', 'shirt']
+    },
+    {
       id: 'sec-about',
       title: 'About TGBI-TO',
       subtitle: 'History, legal identity, SEC Reg. 123899, and acronym meaning',
@@ -219,6 +228,15 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
       icon: <ExternalLink className="w-4 h-4 text-emerald-600" />,
       action: () => openUrl(OFFICIAL_LINKS.registerChapterContacts),
       keywords: ['register', 'chapter', 'directory update', 'officers submission']
+    },
+    {
+      id: 'form-summit42-tshirt',
+      title: 'Order 42nd Summit Official T-Shirt',
+      subtitle: 'Official commemorative shirt order form (Google Forms)',
+      category: 'Form',
+      icon: <ExternalLink className="w-4 h-4 text-amber-600" />,
+      action: () => openUrl(OFFICIAL_LINKS.summit42TshirtOrder),
+      keywords: ['42nd', 'summit', 't-shirt', 'tshirt', 'shirt', 'merch', 'order', 'form', 'anniversary']
     },
 
     // Key facts
